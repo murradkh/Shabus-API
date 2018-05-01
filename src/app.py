@@ -13,3 +13,8 @@ app.config.from_object('src.config')
 @app.route('/')
 def home():
     return "ok"
+
+
+if __name__ == '__main__':
+    app.run(debug=app.config['DEBUG'], port=4990)
+
