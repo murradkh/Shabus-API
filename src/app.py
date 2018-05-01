@@ -6,7 +6,6 @@ app.config.from_object('src.config')
 app.secret_key = 'murrad'
 
 
-#
 @app.before_first_request
 def ini_db():
     Database.init_Database()
