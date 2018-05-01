@@ -5,7 +5,7 @@ import pymongo
 import uuid
 
 class Database(object):
-    URI = os.environ.get('MONGODB-URI')
+    URI = os.environ.get('MONGODB_URI')
     # URI = 'mongodb://murrad:123@ds263619.mlab.com:63619/heroku_7k387d67'
     database = None
 
