@@ -5,12 +5,12 @@ import pymongo
 import uuid
 
 class Database(object):
-    URI = os.environ.get('MONGODB_URI')
-    # URI = 'mongodb://murrad:123@ds263619.mlab.com:63619/heroku_7k387d67'
+    URI = None
     database = None
 
     @staticmethod
     def init_Database():
+        Database.URI = os.environ.get('MONGODB_URI')
         client = pymongo.MongoClient(Database.URI)
         Database.database = client.get_default_database()
 
@@ -33,7 +33,6 @@ class Database(object):
     @staticmethod
     def remove(collection, query, just_one):
         Database.database[collection].remove(collection, query, just_one)
-
 
 
 
