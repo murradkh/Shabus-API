@@ -14,17 +14,18 @@ class Database(object):
         client = pymongo.MongoClient(Database.URI)
         Database.database = client.get_default_database()
 
+
     @staticmethod
     def save_to_DB(collection, query):
         Database.database[collection].insert(query)
 
     @staticmethod
     def find(collection, query):
-        Database.database[collection].find_one(query)
+        return Database.database[collection].find(query)
 
     @staticmethod
     def find_one(collection, query):
-        Database.database[collection].find(query)
+        return Database.database[collection].find_one(query)
 
     @staticmethod
     def update(collection, query, data):

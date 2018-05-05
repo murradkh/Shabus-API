@@ -1,28 +1,30 @@
 import bcrypt
+import re
 
 
 class Utils(object):
 
-    @staticmethod
-    def check_hashed_password(hashed_password1, hashed_password2):
-        pass
+    # @staticmethod
+    # def check_hashed_password(password, hashed_password):
+    #     return False
+    #
+    # @staticmethod
+    # def hash_password(password):
+    #     return True
 
     @staticmethod
-    def hash_password(password):
-        pass
+    def email_Isvalid(email):
+        email_address_matched = re.compile('^[\w-]+@([\w-]+\.)+[\w]+$')
+        return email_address_matched.match(email)
 
     @staticmethod
-    def email_is_valid():
-        pass
+    def password_Isvalid(password, hashed_password):
+        return bcrypt.checkpw(password.encode(), hashed_password.encode())
 
     @staticmethod
-    def check_password_is_valid():
-        pass
+    def phone_number_Isvalid():
+        return True
 
     @staticmethod
-    def check_phone_number():
-        pass
-
-    @staticmethod
-    def check_id_number():
-        pass
+    def id_number_Isvalid():
+        return True
