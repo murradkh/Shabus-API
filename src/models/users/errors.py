@@ -10,7 +10,7 @@ class InCorrect_Password_Error(Driver_Error):
     pass
 
 
-class Form_InValid(Driver_Error):
+class Json_InValid(Driver_Error):
     pass
 
 class Format_email_Invalid(Driver_Error):
