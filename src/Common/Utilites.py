@@ -1,6 +1,8 @@
+from ..config import TOKEN_LIFETIME,SECRET_KEY
 import bcrypt
 import re
-
+import datetime
+import jwt
 
 class Utils(object):
 
@@ -28,3 +30,15 @@ class Utils(object):
     @staticmethod
     def id_number_Isvalid():
         return True
+
+    @staticmethod
+    def Create_Token(id):
+        token = jwt.encode({'user': id, 'exp': (datetime.datetime.utcnow() + datetime.timedelta(hours=int(TOKEN_LIFETIME)))}, key=SECRET_KEY)
+        return token.decode('utf-8')
+
+    @staticmethod
+    def Token_Isvalid(token):
+        try:
+            return jwt.decode(token, SECRET_KEY)
+        except:
+            return False

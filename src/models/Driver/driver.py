@@ -6,6 +6,7 @@ from .errors import Driver_Not_Exist_Error, Json_InValid, InCorrect_Password_Err
 
 
 class Driver(object):
+
     def __init__(self):
         pass
 
@@ -26,7 +27,7 @@ class Driver(object):
         return driver_data
 
     @staticmethod
-    def check_Json_vaild():  # checking the json  file has two keys (email and password), if not, then  raise an error indicating the type of error.
+    def check_Json_vaild():  # checking the json file has two keys (email and password), if not, then  raise an error indicating the type of error.
         try:
             content = request.get_json()
             email = content['email']
