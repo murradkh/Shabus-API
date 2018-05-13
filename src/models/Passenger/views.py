@@ -1,10 +1,17 @@
-from flask import Blueprint
-from .decorator import valid_token_exist
+from flask import Blueprint, jsonify
+
+from .errors import Passenger_Error
+from .passenger import Passenger
 
 passenger_blueprint = Blueprint('passenger',__name__)
 
 
 @passenger_blueprint.route('/Passenger-New-Ride', methods=['OPTIONS', 'POST'])
-@valid_token_exist
-def New_Ride_For_Passenger():
-    pass
+def New_Ride_For_Passenger(token):
+    try:
+
+        Passenger.New_Ride()
+
+    except Passenger_Error as e:
+        print(e.message)
+        return jsonify({'Status': 'Reject', 'message': 'something goes wrong! please try again.'})

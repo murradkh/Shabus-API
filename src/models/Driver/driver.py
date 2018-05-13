@@ -1,8 +1,9 @@
-from flask import request, json
-from ...Common.Database import Database
+from flask import request
+
 from .constants import COLLECTION
-from ...Common.Utilites import Utils
 from .errors import Driver_Not_Exist_Error, Json_InValid, InCorrect_Password_Error, Format_email_Invalid
+from ...Common.Database import Database
+from ...Common.Utilites import Utils
 
 
 class Driver(object):
@@ -16,7 +17,7 @@ class Driver(object):
         if not Utils.email_Isvalid(email):
             raise Format_email_Invalid('email format not valid')
 
-        driver_data = Database.find_one(collection=COLLECTION, query={'email': email})
+        driver_data = Driver.find_driver(query={'email': email})
 
         if driver_data is None:
             raise Driver_Not_Exist_Error("your driver does not exist.")
@@ -35,3 +36,13 @@ class Driver(object):
             return email, password
         except:
             raise Json_InValid('The Json file is not valid')
+
+    @staticmethod
+    def find_driver(query):
+        return Database.find_one(collection=COLLECTION, query=query)
+
+    def save_to_db(self):
+        pass
+
+    def json(self):
+        pass

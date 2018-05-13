@@ -1,8 +1,11 @@
-from ..config import TOKEN_LIFETIME,SECRET_KEY
-import bcrypt
-import re
 import datetime
+import re
+
+import bcrypt
 import jwt
+
+from ..config import TOKEN_LIFETIME, SECRET_KEY
+
 
 class Utils(object):
 
@@ -24,7 +27,7 @@ class Utils(object):
         return bcrypt.checkpw(password.encode(), hashed_password.encode())
 
     @staticmethod
-    def phone_number_Isvalid():
+    def phone_number_Isvalid(phone_number):
         return True
 
     @staticmethod
@@ -39,6 +42,7 @@ class Utils(object):
     @staticmethod
     def Token_Isvalid(token):
         try:
-            return jwt.decode(token, SECRET_KEY)
+            jwt.decode(token, SECRET_KEY)
+            return True
         except:
             return False
