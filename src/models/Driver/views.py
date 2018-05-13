@@ -1,8 +1,8 @@
 from flask import Blueprint, jsonify
+
 from src.models.Driver.decorator import crossdomain
 from .driver import Driver
 from .errors import Driver_Error
-from ...Common.Utilites import Utils
 
 Driver_blueprint = Blueprint('Driver', __name__)
 
@@ -12,9 +12,7 @@ Driver_blueprint = Blueprint('Driver', __name__)
 def Driver_login():
     try:
 
-        email, password = Driver.check_Json_vaild()  # checking the json file have valid fields
-        driver_details = Driver.check_login_valid(email, password)  # checking the user data is valid with database data
-        token = Utils.Create_Token(driver_details['_id'])  # Creating token according to user id(more safer than according the user email)
+        token = Driver.login()
         return jsonify({'Status': 'Accept', 'Token': token})
 
     except Driver_Error as e:

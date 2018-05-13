@@ -12,7 +12,7 @@ class Driver(object):
         pass
 
     @staticmethod
-    def check_login_valid(email, password):
+    def check_details_valid(email, password):  # checking
 
         if not Utils.email_Isvalid(email):
             raise Format_email_Invalid('email format not valid')
@@ -40,6 +40,16 @@ class Driver(object):
     @staticmethod
     def find_driver(query):
         return Database.find_one(collection=COLLECTION, query=query)
+
+    @staticmethod
+    def login():
+
+        email, password = Driver.check_Json_vaild()  # checking the json file have valid fields
+        driver_details = Driver.check_details_valid(email,
+                                                    password)  # checking the user data is valid with database data
+        token = Utils.Create_Token(
+            driver_details['_id'])  # Creating token according to user id(more safer than according the user email)
+        return token
 
     def save_to_db(self):
         pass

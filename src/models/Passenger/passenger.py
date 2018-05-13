@@ -17,15 +17,15 @@ class Passenger(object):
             phone_number = content['Phone_Number']
             return token, phone_number
         except:
-            raise Json_InValid('The Json file is not valid')
+            raise Json_InValid('The Json file is not valid!')
 
     @staticmethod
     def New_Ride():
-        token, phone_number = Passenger.New_Ride()
+        token, phone_number = Passenger.check_json_IsVaild()
         if not Utils.Token_Isvalid(token):
             raise Token_Is_InValid('token is not valid!')
 
-        if Utils.phone_number_Isvalid(phone_number) is False:
+        if Utils.phone_number_Isvalid(phone_number) is None:
             raise Format_PhoneNumber_InValid('the format the phone number is invalid!')
 
     @staticmethod

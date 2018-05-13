@@ -1,6 +1,6 @@
-from datetime import timedelta
+from flask import Flask
+
 from src.Common.Database import Database
-from flask import Flask,  request
 from src.models.Driver.views import Driver_blueprint
 from .models.Passenger.views import passenger_blueprint
 
