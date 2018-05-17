@@ -55,7 +55,7 @@ class Passenger(object):
     @staticmethod
     def store_new_ride(query):
         pass
-        # Database.save_to_DB(collection=New_Ride_Collection,query)
+        # Database.save_to_db(collection=New_Ride_Collection,query)
 
     def save_to_db(self):
         pass
