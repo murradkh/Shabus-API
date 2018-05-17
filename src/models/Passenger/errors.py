@@ -16,6 +16,10 @@ class Format_ID_InValid(Passenger_Error):
     pass
 
 
+class Violation_number_of_passengers(Passenger_Error):
+    pass
+
+
 class Passenger_NotExist_Error(Passenger_Error):
     pass
 

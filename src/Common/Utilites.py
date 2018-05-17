@@ -11,7 +11,7 @@ class Utils(object):
 
     @staticmethod
     def email_Isvalid(email):
-        email_address_matcher = re.compile('^[\w-]+@([\w-]+\.)+[\w]+$')
+        email_address_matcher = re.compile('^[\w\._%+-]+@([\w-]+\.)+[A-Za-z]{2,4}$')
         return email_address_matcher.match(email)
 
     @staticmethod
@@ -36,6 +36,7 @@ class Utils(object):
     def Token_Isvalid(token):
         try:
             jwt.decode(token, SECRET_KEY)
+
             return True
         except:
             return False
