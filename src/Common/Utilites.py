@@ -11,7 +11,7 @@ class Utils(object):
 
     @staticmethod
     def email_Isvalid(email):
-        email_address_matcher = re.compile('^[\w\._%+-]+@([\w-]+\.)+[A-Za-z]{2,4}$')
+        email_address_matcher = re.compile('^[\w_%+-.]+@([\w-]+\.)+[A-Za-z]{2,4}$')
         return email_address_matcher.match(email)
 
     @staticmethod
@@ -28,15 +28,22 @@ class Utils(object):
         return True
 
     @staticmethod
-    def Create_Token(id):
-        token = jwt.encode({'user': id, 'exp': (datetime.datetime.utcnow() + datetime.timedelta(hours=int(TOKEN_LIFETIME)))}, key=SECRET_KEY)
+    def Create_Token(email):
+        token = jwt.encode(
+            {'user': email, 'exp': (datetime.datetime.utcnow() + datetime.timedelta(hours=int(TOKEN_LIFETIME)))},
+            key=SECRET_KEY)
         return token.decode('utf-8')
 
     @staticmethod
     def Token_Isvalid(token):
-        try:
-            jwt.decode(token, SECRET_KEY)
 
-            return True
-        except:
+        if Utils.decode_token(token=token) is None:
             return False
+        return True
+
+    @staticmethod
+    def decode_token(token):
+        try:
+            return jwt.decode(token, SECRET_KEY)
+        except:
+            return None
