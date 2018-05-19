@@ -18,12 +18,13 @@ class Database(object):
         Database.database[collection].insert(query)
 
     @staticmethod
-    def find(collection, query):
-        return Database.database[collection].find(query)
+    def find(collection, query,
+             options=None):  # the option variable representing which field we want back from the DB. if not specified then return all the fields of required document
+        return Database.database[collection].find(query, options)
 
     @staticmethod
-    def find_one(collection, query):
-        return Database.database[collection].find_one(query)
+    def find_one(collection, query, options=None):
+        return Database.database[collection].find_one(query, options)
 
     @staticmethod
     def update(collection, query, update, upsert):
