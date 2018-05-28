@@ -1,8 +1,6 @@
 from flask import Flask
 
 from src.Common.Database import Database
-from src.config import TOKEN_LIFETIME
-from src.models.User.Driver.constants import Index_field_for_ttl, DB_collection_current_driver_shift
 from src.models.User.Driver.views import Driver_blueprint
 from src.models.User.Passenger.views import passenger_blueprint
 
@@ -16,8 +14,14 @@ app.secret_key = app.config['SECRET_KEY']
 @app.before_first_request
 def ini_db():
     Database.init_Database()
-    Database.set_ttl_for_collection(DB_collection_current_driver_shift, index_field=Index_field_for_ttl,
-                                    expire_after_seconds=int(TOKEN_LIFETIME) * 60 * 60)
+    # Database.set_ttl_for_collection('Previous shifts', index_field="createdAt",
+    #                                 expire_after_seconds=30*24 * 60 * 60)  # this command is run every time our server is waked up, i did this(instead of just one time to run the command)  for making our application dynamic, so in case the manager changed the expiration duration shift, it will work here.
+    # Database.set_ttl_for_collection("New rides", index_field="createdAt",
+    #                                 expire_after_seconds=30*24 * 60 * 60)  # this command is run every time our server is waked up, i did this(instead of just one time to run the command)  for making our application dynamic, so in case the manager changed the expiration duration shift, it will work here.
+    #
+    # Database.set_ttl_for_collection("Current shifts", index_field="createdAt",
+    #                                 expire_after_seconds=30 * 24 * 60 * 60)  # this command is run every time our server is waked up, i did this(instead of just one time to run the command)  for making our application dynamic, so in case the manager changed the expiration duration shift, it will work here.
+
 
 
 @app.route('/')

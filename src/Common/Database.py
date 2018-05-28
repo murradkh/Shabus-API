@@ -27,6 +27,10 @@ class Database(object):
         return Database.database[collection].find_one(query, options)
 
     @staticmethod
+    def find_one_and_delete(collection, query, options=None):
+        return Database.database[collection].find_one_and_delete(query, options)
+
+    @staticmethod
     def update(collection, query, update, upsert):
         Database.database[collection].update(query, {"$set": update}, upsert=upsert)
 
