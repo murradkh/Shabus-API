@@ -4,19 +4,7 @@
     <bookmark url="file://$PROJECT_DIR$/src/models/Users/Passenger/passenger.py" line="45" mnemonic="9" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3e23ba85-4851-4579-9539-22cab7bcaf12" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/common/decorator.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/user/moovit/constants.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/user/moovit/errors.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/user/moovit/moovit.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/models/user/moovit/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Common/Database.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Common/Utilites.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/utilites.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Common/sms.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/sms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Unused code" beforeDir="false" afterPath="$PROJECT_DIR$/src/Unused code" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.py" afterDir="false" />
-    </list>
+    <list default="true" id="3e23ba85-4851-4579-9539-22cab7bcaf12" name="Default" comment="adding moovit model" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -57,8 +45,8 @@
       <file leaf-file-name="moovit.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/models/user/moovit/moovit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="307">
-              <caret line="34" column="117" selection-start-line="34" selection-start-column="117" selection-end-line="34" selection-end-column="117" />
+            <state relative-caret-position="154">
+              <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -91,10 +79,7 @@
         <entry file="file://$PROJECT_DIR$/src/models/user/moovit/views.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
+              <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
             </state>
           </provider>
         </entry>
@@ -121,7 +106,7 @@
         <entry file="file://$PROJECT_DIR$/src/models/user/moovit/constants.py">
           <provider selected="true" editor-type-id="text-editor">
             <state>
-              <caret column="41" lean-forward="true" selection-start-column="41" selection-end-column="41" />
+              <caret column="41" selection-start-column="41" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -130,7 +115,7 @@
         <entry file="file://$PROJECT_DIR$/src/models/user/moovit/errors.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="272">
-              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+              <caret line="16" selection-start-line="16" selection-end-line="16" />
             </state>
           </provider>
         </entry>
@@ -539,13 +524,12 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.17203514" />
       <window_info anchor="bottom" id="TODO" order="5" />
-      <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="11" sideWeight="0.50073206" side_tool="true" visible="true" weight="0.3290938" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3290938" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" visible="true" weight="0.27344993" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49926794" weight="0.27344993" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32952693" />
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.3338633" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -582,7 +566,8 @@
     <MESSAGE value="1)Adding the function which take care of driver coordination.&#10;2)Adding the function in database for adding index 'expireation after seconds'." />
     <MESSAGE value="just refining some functions..." />
     <MESSAGE value="adding sms file" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding sms file" />
+    <MESSAGE value="adding moovit model" />
+    <option name="LAST_COMMIT_MESSAGE" value="adding moovit model" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -924,14 +909,14 @@
     <entry file="file://$PROJECT_DIR$/src/models/user/moovit/constants.py">
       <provider selected="true" editor-type-id="text-editor">
         <state>
-          <caret column="41" lean-forward="true" selection-start-column="41" selection-end-column="41" />
+          <caret column="41" selection-start-column="41" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/user/moovit/errors.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <caret line="16" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
@@ -955,17 +940,14 @@
     <entry file="file://$PROJECT_DIR$/src/models/user/moovit/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="272">
-          <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/user/moovit/moovit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="307">
-          <caret line="34" column="117" selection-start-line="34" selection-start-column="117" selection-end-line="34" selection-end-column="117" />
+        <state relative-caret-position="154">
+          <caret line="29" column="38" lean-forward="true" selection-start-line="29" selection-start-column="38" selection-end-line="29" selection-end-column="38" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
