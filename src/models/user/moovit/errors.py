@@ -18,3 +18,7 @@ class TokenIsInValid(MoovitError):
 
 class FormatPhoneNumberInValid(MoovitError):
     pass
+
+
+class SmsError(MoovitError):
+    pass
