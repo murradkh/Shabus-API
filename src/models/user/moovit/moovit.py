@@ -13,7 +13,7 @@ from .errors import *
 
 
 class Moovit(object):
-    INVITAION_MESSAGE = "תודה לך שבחרת בשבוס.\n בקשת הצטרפות לשבוס: \n https://app.shabus.co.il/register/"
+    INVITAION_MESSAGE = "תודה לך שבחרת בשבוס.\nאם רוצים להיות חברים בשבוס תלחצו על הלינק:\n https://app.shabus.co.il/register/"
 
     @staticmethod
     def check_json_valid():
