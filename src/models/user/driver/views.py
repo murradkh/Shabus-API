@@ -9,7 +9,6 @@ Driver_blueprint = Blueprint('driver', __name__)
 
 
 @Driver_blueprint.route('/login', methods=['POST', 'OPTIONS'])
-@crossdomain(origin='http://localhost:8100')
 def login():
     try:
         token = Driver.login()
