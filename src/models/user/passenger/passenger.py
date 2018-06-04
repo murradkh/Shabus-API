@@ -37,7 +37,7 @@ class Passenger(object):
         passenger_details['Number Of Passegers'] = number_of_passengers
         passenger_details['_id'] = uuid.uuid4().hex
         decoded_token = Utils.decode_token(token=token)
-        passenger_details['Wًith_Driver'] = decoded_token['email']
+        passenger_details['Wًith_Driver'] = decoded_token['name']
         passenger_details['Riding_Place'] = \
             Driver.get_coordination({'email': decoded_token['email']}, {'Current_location': 1, '_id': 0})[
                 'Current_location']  # important thing i did here, its telling the mongo database to give me just the one field without other fields in document(which satisfy the requirements)

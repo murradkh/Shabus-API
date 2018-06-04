@@ -29,7 +29,7 @@ class Utils(object):
     @staticmethod
     def Create_Token(content):
         token = jwt.encode(
-            {'email': content['email'], 'name': content['name'],
+            {'email': content['email'], 'name': content['name'], 'phone_number': content['phone_number'],
              'exp': (datetime.datetime.utcnow() + datetime.timedelta(hours=int(TOKEN_LIFETIME)))},
             key=SECRET_KEY)
         return token.decode('utf-8')

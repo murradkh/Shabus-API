@@ -28,7 +28,7 @@ class Moovit(object):
         Utils.phone_number_Isvalid(phone_number=phone_number)
         query = {}
         decoded_token = Utils.decode_token(token=token)
-        query['Wًith_Driver'] = decoded_token['email']
+        query['Wًith_Driver'] = decoded_token['name']
         query['Riding_Place'] = \
             Driver.get_coordination({'email': decoded_token['email']}, {'Current_location': 1, '_id': 0})[
                 'Current_location']  # important thing i did here, its telling the mongo database to give me just the one field without other fields in document(which satisfy the requirements)
