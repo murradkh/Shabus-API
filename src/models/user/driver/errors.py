@@ -19,5 +19,5 @@ class FormatEmailInvalid(DriverError):
     pass
 
 
-class TokenIsInValid(DriverError):
+class CodeNumberIsInValid(DriverError):
     pass

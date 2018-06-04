@@ -4,6 +4,7 @@ import uuid
 from flask import request
 
 from src.common.database import Database
+from src.common.errors import DBErrors
 from src.common.utilites import Utils
 from src.models.user.driver.driver import Driver
 from .constants import *
@@ -28,41 +29,35 @@ class Passenger(object):
 
     @staticmethod
     def new_ride():
+
         token, phone_number, number_of_passengers = Passenger.check_json_isvaild()
-
-        if not Utils.Token_Isvalid(token):
-            raise TokenIsInValid('token is not valid!')
-
-        if Utils.phone_number_Isvalid(phone_number) is None:
-            raise FormatPhoneNumberInValid('the format phone number is invalid!')
-
-        if Passenger.check_num_of_passengers(number_of_passengers) is False:
-            raise ViolationNumberOfPassengers('max passengers allowed is {}'.format(Allowed_Number_Of_Passengers))
-
+        Utils.phone_number_Isvalid(phone_number)
+        Passenger.check_num_of_passengers(number_of_passengers)
         passenger_details = Passenger.find_passenger(query={'phone_number': phone_number})
-        if passenger_details is None:
-            raise PassengerNotExistError('Not user')
-        else:
-            passenger_details['Number Of Passegers'] = number_of_passengers
-            passenger_details['_id'] = uuid.uuid4().hex
-            decoded_token = Utils.decode_token(token=token)
-            passenger_details['Wًith Driver'] = decoded_token['email']
-            passenger_details['Riding Place'] = \
-            Driver.get_coordination({'email': decoded_token['email']}, {'coordination': 1, '_id': 0})[
-                'coordination']  # important thing i did here, its telling the mongo database to give me just the one field without other fields in document(which satisfy the requirements)
-            passenger_details['Riding Time'] = datetime.datetime.now().strftime("%Y/%m/%d, %H:%M")
-            Passenger.store_new_ride(passenger_details)
-            return passenger_details.get('name') if passenger_details.get('name') is not None else ""
+        passenger_details['Number Of Passegers'] = number_of_passengers
+        passenger_details['_id'] = uuid.uuid4().hex
+        decoded_token = Utils.decode_token(token=token)
+        passenger_details['Wًith_Driver'] = decoded_token['email']
+        passenger_details['Riding_Place'] = \
+            Driver.get_coordination({'email': decoded_token['email']}, {'Current_location': 1, '_id': 0})[
+                'Current_location']  # important thing i did here, its telling the mongo database to give me just the one field without other fields in document(which satisfy the requirements)
+        passenger_details['Riding Time'] = datetime.datetime.now().strftime("%Y/%m/%d, %H:%M")
+        passenger_details['created_at'] = datetime.datetime.now()
+        Passenger.store_new_ride(passenger_details)
+        return passenger_details.get('name') if passenger_details.get('name') is not None else ""
 
     @staticmethod
     def check_num_of_passengers(number_of_passengers):
-        if 0 < number_of_passengers <= Allowed_Number_Of_Passengers:
-            return True
-        return False
+        if not (0 < number_of_passengers <= Allowed_Number_Of_Passengers):
+            raise ViolationNumberOfPassengers('max passengers allowed is {}'.format(Allowed_Number_Of_Passengers))
+        return True
 
     @staticmethod
     def find_passenger(query):
-        return Database.find_one(collection=DB_collection_Passengers, query=query)
+        try:
+            return Database.find_one(collection=DB_collection_Passengers, query=query)
+        except DBErrors:
+            raise PassengerNotExistError('Not user')
 
     @staticmethod
     def store_new_ride(query):

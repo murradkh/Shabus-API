@@ -12,13 +12,3 @@ class JsonInValid(MoovitError):
     pass
 
 
-class TokenIsInValid(MoovitError):
-    pass
-
-
-class FormatPhoneNumberInValid(MoovitError):
-    pass
-
-
-class SmsError(MoovitError):
-    pass

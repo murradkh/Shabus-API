@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify
 
 from src.common.decorator import crossdomain
+from src.common.errors import CommonErrors
 from .driver import Driver
 from .errors import DriverError
 
@@ -13,9 +14,9 @@ def login():
     try:
         token = Driver.login()
         return jsonify({'Status': 'Accept', 'Token': token})
-    except DriverError as e:
+    except (DriverError, CommonErrors) as e:
         print(e.message)
-        return jsonify({'Status': 'Reject', 'message': 'The login failed, your email/password Incorrect'})
+        return jsonify({'Status': 'Reject'})
 
 
 @Driver_blueprint.route('/coordination', methods=['POST', 'OPTIONS'])
@@ -24,8 +25,8 @@ def driver_coordination():  # here we have to update the place of the current dr
     try:
         Driver.update_coordination()
         return jsonify({'Status': 'Accept'})
-    except DriverError as e:
-        print(e)
+    except (DriverError, CommonErrors) as e:
+        print(e.message)
         return jsonify({'Status': 'Reject', 'message': e.message})
 
 
@@ -34,6 +35,39 @@ def driver_coordination():  # here we have to update the place of the current dr
 def logout():
     try:
         Driver.logout()
-    except DriverError as e:
+    except (DriverError, CommonErrors) as e:
         print(e.message)
     return jsonify({'Status': 'Accept'})
+
+
+@Driver_blueprint.route('/forget-password', methods=['POST', 'OPTIONS'])
+@crossdomain(origin='http://localhost:8100')
+def forget_password():
+    try:
+        Driver.forget_password()
+        return jsonify({'Status': 'Accept'})
+    except (DriverError, CommonErrors) as e:
+        print(e.message)
+        return jsonify({'Status': 'Reject'})
+
+
+@Driver_blueprint.route('/change-password', methods=['POST', 'OPTIONS'])
+@crossdomain(origin='http://localhost:8100')
+def change_password():
+    try:
+        Driver.change_password()
+        return jsonify({'Status': 'Accept'})
+    except (DriverError, CommonErrors) as e:
+        print(e.message)
+        return jsonify({'Status': 'Reject'})
+
+
+@Driver_blueprint.route('/check-code-number', methods=['POST', 'OPTIONS'])
+@crossdomain(origin='http://localhost:8100')
+def check_code_number():
+    try:
+        Driver.check_code_number_validation()
+        return jsonify({'Status': 'Accept'})
+    except (DriverError, CommonErrors) as e:
+        print(e.message)
+        return jsonify({'Status': 'Reject'})

@@ -2,6 +2,8 @@ import os
 
 import pymongo
 
+from src.common.errors import DBErrors
+
 
 class Database(object):
     URI = None
@@ -15,24 +17,42 @@ class Database(object):
 
     @staticmethod
     def save_to_db(collection, query):
-        Database.database[collection].insert(query)
+        try:
+            data = Database.database[collection].insert(query)
+            if data is None:
+                raise Exception
+            return data
+        except Exception:
+            DBErrors("failed in saving the data, maybe because the data already exist!")
 
     @staticmethod
     def find(collection, query,
              options=None):  # the option variable representing which field we want back from the DB. if not specified then return all the fields of required document
-        return Database.database[collection].find(query, options)
+        data = Database.database[collection].find(query, options)
+        if data is None:
+            raise DBErrors("the data not found in db")
+        return data
 
     @staticmethod
     def find_one(collection, query, options=None):
-        return Database.database[collection].find_one(query, options)
+        data = Database.database[collection].find_one(query, options)
+        if data is None:
+            raise DBErrors("the data not found in db")
+        return data
 
     @staticmethod
     def find_one_and_delete(collection, query, options=None):
-        return Database.database[collection].find_one_and_delete(query, options)
+        data = Database.database[collection].find_one_and_delete(query, options)
+        if data is None:
+            raise DBErrors("the data not found in db")
+        return data
 
     @staticmethod
-    def update(collection, query, update, upsert):
-        Database.database[collection].update(query, {"$set": update}, upsert=upsert)
+    def update(collection, query, update, upsert=False):
+        data = Database.database[collection].update(query, {"$set": update}, upsert=upsert)
+        if data is None:
+            raise DBErrors("can't update the documents in db")
+        return data
 
     @staticmethod
     def set_ttl_for_collection(collection, index_field,

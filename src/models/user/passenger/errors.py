@@ -8,10 +8,6 @@ class JsonInValid(PassengerError):
     pass
 
 
-class FormatPhoneNumberInValid(PassengerError):
-    pass
-
-
 class FormatIDInValid(PassengerError):
     pass
 

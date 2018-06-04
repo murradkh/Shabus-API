@@ -1,6 +1,7 @@
 from flask import Blueprint, jsonify
 
 from src.common.decorator import crossdomain
+from src.common.errors import CommonErrors
 from src.models.user.moovit.errors import MoovitError
 from .moovit import Moovit
 
@@ -14,6 +15,6 @@ def moovit_user():
         Moovit.use_moovit_feature()
         return jsonify({'Status': 'Accept'})
 
-    except MoovitError as e:
+    except (MoovitError, CommonErrors) as e:
         print(e.message)
         return jsonify(Status='Reject', message=e.message)
