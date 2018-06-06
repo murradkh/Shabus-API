@@ -5,7 +5,7 @@ import bcrypt
 import jwt
 
 from src.common.errors import *
-from ..config import TOKEN_LIFETIME, SECRET_KEY
+from ..config import SECRET_KEY
 
 
 class Utils(object):
@@ -27,11 +27,12 @@ class Utils(object):
             raise FormatPhoneNumberInValid('phone number invalid!')
 
     @staticmethod
-    def Create_Token(content):
-        token = jwt.encode(
-            {'email': content['email'], 'name': content['name'], 'phone_number': content['phone_number'],
-             'exp': (datetime.datetime.utcnow() + datetime.timedelta(hours=int(TOKEN_LIFETIME)))},
-            key=SECRET_KEY)
+    def Create_Token(content, life_time_minutes=0, life_time_hours=0):
+        d = dict(content)
+        d.update(exp=(datetime.datetime.utcnow() + datetime.timedelta(hours=int(life_time_hours),
+                                                                      minutes=int(life_time_minutes))))
+        print(d)
+        token = jwt.encode(d, key=SECRET_KEY)
         return token.decode('utf-8')
 
     @staticmethod

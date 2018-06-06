@@ -63,6 +63,9 @@ class Driver(object):
                 driver_data["password_restoration"]['created_at']):
             raise CodeNumberIsInValid("the code number is invalid!")
 
+        token_data = {"phone_number": phone_number}
+        return Utils.Create_Token(token_data, life_time_minutes=CHANGE_PASSWORD_DURATION)
+
     @staticmethod
     def check_json_vaild(
             *args):
@@ -85,7 +88,10 @@ class Driver(object):
         driver_data = Driver.check_phone_number_validation(phone_number=phone_number)
         Driver.check_password_validation(password, driver_data)
         Driver.store_driver_shift(driver_data, coordination)
-        token = Utils.Create_Token(driver_data)
+        wanted_keys = {'name', 'phone_number', 'email'}
+        token_data = {key: value for key, value in driver_data.items() if key in wanted_keys}
+        print(token_data)
+        token = Utils.Create_Token(token_data, life_time_hours=TOKEN_LIFETIME)
         return token
 
     @staticmethod

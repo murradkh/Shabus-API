@@ -75,3 +75,9 @@
 5)     Database.set_ttl_for_collection("New rides", index_field='created_at', expire_after_seconds=30 * 24 * 60 * 60)
     Database.set_ttl_for_collection("Current shifts", index_field='created_at', expire_after_seconds=30 * 24 * 60 * 60)
     Database.set_ttl_for_collection("Previous shifts", index_field='created_at', expire_after_seconds=30 * 24 * 60 * 60)
+
+6)   token = jwt.encode(
+            {'email': content['email'], 'name': content['name'], 'phone_number': content['phone_number'],
+             'exp': (datetime.datetime.utcnow() + datetime.timedelta(hours=int(life_time_hours),
+                                                                     minutes=int(life_time_minutes)))},
+            key=SECRET_KEY)

@@ -68,8 +68,8 @@ def change_password():
 @crossdomain(origin='http://localhost:8100')
 def check_code_number():
     try:
-        Driver.check_code_number_validation()
-        return jsonify({'Status': 'Accept'})
+        token = Driver.check_code_number_validation()
+        return jsonify({'Status': 'Accept', "Token": token})
     except (DriverError, CommonErrors) as e:
         print(e.message)
         return jsonify({'Status': 'Reject'})
