@@ -45,8 +45,9 @@ def logout():
 @crossdomain(origin='http://localhost:8100')
 def forget_password():
     try:
-        Driver.forget_password()
-        return jsonify({'Status': 'Accept', 'Duration': CODE_NUMBER_DURATION, 'Length': FORGET_PASSWORD_CODE_LENGTH})
+        name = Driver.forget_password()
+        return jsonify(
+            {'Status': 'Accept', 'Duration': CODE_NUMBER_DURATION, 'Length': FORGET_PASSWORD_CODE_LENGTH, 'Name': name})
     except (DriverError, CommonErrors) as e:
         print(e.message)
         return jsonify({'Status': 'Reject'})

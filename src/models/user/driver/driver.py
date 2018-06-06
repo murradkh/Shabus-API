@@ -47,6 +47,7 @@ class Driver(object):
         restoration_code['restoration_code'] = code_number
         restoration_code['created_at'] = datetime.datetime.now()
         Driver.update_db({"phone_number": phone_number}, {"password_restoration": restoration_code})
+        return driver_data['name']
 
     @staticmethod
     def change_password():
