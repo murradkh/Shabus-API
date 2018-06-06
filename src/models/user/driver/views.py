@@ -2,6 +2,7 @@ from flask import Blueprint, jsonify
 
 from src.common.decorator import crossdomain
 from src.common.errors import CommonErrors
+from .constants import *
 from .driver import Driver
 from .errors import DriverError
 
@@ -45,7 +46,7 @@ def logout():
 def forget_password():
     try:
         Driver.forget_password()
-        return jsonify({'Status': 'Accept'})
+        return jsonify({'Status': 'Accept', 'Duration': CODE_NUMBER_DURATION, 'Length': FORGET_PASSWORD_CODE_LENGTH})
     except (DriverError, CommonErrors) as e:
         print(e.message)
         return jsonify({'Status': 'Reject'})

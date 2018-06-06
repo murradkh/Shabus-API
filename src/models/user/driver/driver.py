@@ -103,14 +103,12 @@ class Driver(object):
         except:
             pass
 
-
     @staticmethod
     def update_coordination():
         token, coordination = Driver.check_json_vaild("Token", "coordination")
         decoded_token = Utils.decode_token(token=token)
         Database.update(DB_collection_current_driver_shift, {'email': decoded_token['email']},
                         {"Current_location": coordination}, False)
-
 
     @staticmethod
     def logout():
