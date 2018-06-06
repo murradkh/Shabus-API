@@ -58,7 +58,7 @@ class Driver(object):
         restoration_code, phone_number = Driver.check_json_vaild('restoration_code', "phone_number")
         driver_data = Driver.check_phone_number_validation(phone_number=phone_number)
         if (driver_data.get("password_restoration") is None) or (
-                driver_data["password_restoration"]['restoration_code'] != restoration_code) or (
+                driver_data["password_restoration"]['restoration_code'] != int(restoration_code)) or (
                 (datetime.datetime.now() - datetime.timedelta(minutes=CODE_NUMBER_DURATION)) >
                 driver_data["password_restoration"]['created_at']):
             raise CodeNumberIsInValid("the code number is invalid!")
