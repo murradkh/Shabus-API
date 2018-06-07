@@ -17,7 +17,7 @@ class Moovit(object):
     def check_json_valid():
         try:
             content = request.get_json()
-            return content['phone_number'], content['Token']
+            return content['PhoneNumber'], content['Token']
         except KeyError:
             raise JsonInValid('The Json file is not valid')
 
@@ -28,19 +28,19 @@ class Moovit(object):
         Utils.phone_number_Isvalid(phone_number=phone_number)
         query = {}
         decoded_token = Utils.decode_token(token=token)
-        query['Wًith_Driver'] = decoded_token['name']
-        query['Riding_Place'] = \
-            Driver.get_coordination({'email': decoded_token['email']}, {'Current_location': 1, '_id': 0})[
-                'Current_location']  # important thing i did here, its telling the mongo database to give me just the one field without other fields in document(which satisfy the requirements)
-        query.update(phone_number=phone_number, _id=uuid.uuid4().hex,
-                     Riding_Time=datetime.datetime.now().strftime("%Y/%m/%d, %H:%M"))
+        query['Wًith driver'] = decoded_token['Name']
+        query['Riding place'] = \
+            Driver.get_coordination({'Email': decoded_token['Email']}, {'Current location': 1, '_id': 0})[
+                'Current location']  # important thing i did here, its telling the mongo database to give me just the one field without other fields in document(which satisfy the requirements)
+        query.update({"PhoneNumber": phone_number, "_id": uuid.uuid4().hex,
+                      "Riding time": datetime.datetime.now().strftime("%Y/%m/%d, %H:%M")})
         Moovit.save_to_db(query=query)
         SMS.send_sms(phone_number=phone_number, text=INVITAION_MESSAGE)
 
     @staticmethod
     def save_to_db(query):
         try:
-            Database.find_one(collection=DB_COLLECTION_USERS_USED_MOOVIT, query={"phone_number": query['phone_number']})
+            Database.find_one(collection=DB_COLLECTION_USERS_USED_MOOVIT, query={"PhoneNumber": query['PhoneNumber']})
             raise MoovitFeatureUsedBefore("user used moovit feature before!")
         except CommonErrors:
             Database.save_to_db(collection=DB_COLLECTION_USERS_USED_MOOVIT, query=query)

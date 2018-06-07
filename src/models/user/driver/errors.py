@@ -7,15 +7,15 @@ class DriverNotExistError(DriverError):
     pass
 
 
+class DriverExistError(DriverError):
+    pass
+
+
 class InCorrectPasswordError(DriverError):
     pass
 
 
 class JsonInValid(DriverError):
-    pass
-
-
-class FormatEmailInvalid(DriverError):
     pass
 
 

@@ -81,3 +81,5 @@
              'exp': (datetime.datetime.utcnow() + datetime.timedelta(hours=int(life_time_hours),
                                                                      minutes=int(life_time_minutes)))},
             key=SECRET_KEY)
+
+7)  # return isinstance(number, (str, unicode)) and number.startswith("05") and len(number) == 10 # this is alternative way to check the phone number is valid

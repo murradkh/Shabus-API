@@ -3,7 +3,7 @@ class CommonErrors(Exception):
         self.message = message
 
 
-class TokenIsInValid(CommonErrors):
+class TokenInValid(CommonErrors):
     pass
 
 
@@ -16,4 +16,16 @@ class SmsError(CommonErrors):
 
 
 class DBErrors(CommonErrors):
+    pass
+
+
+class FormatEmailInvalid(CommonErrors):
+    pass
+
+
+class PasswordInValid(CommonErrors):
+    pass
+
+
+class HashingPasswordFailed(CommonErrors):
     pass

@@ -45,9 +45,11 @@ def logout():
 @crossdomain(origin='http://localhost:8100')
 def forget_password():
     try:
-        name = Driver.forget_password()
+        token, name = Driver.forget_password()
         return jsonify(
-            {'Status': 'Accept', 'Duration': CODE_NUMBER_DURATION, 'Length': FORGET_PASSWORD_CODE_LENGTH, 'Name': name})
+            {'Status': 'Accept', 'Duration': CODE_NUMBER_DURATION, 'CodeLength': FORGET_PASSWORD_CODE_LENGTH,
+             'Name': name,
+             'Token': token})
     except (DriverError, CommonErrors) as e:
         print(e.message)
         return jsonify({'Status': 'Reject'})
@@ -69,7 +71,18 @@ def change_password():
 def check_code_number():
     try:
         token = Driver.check_code_number_validation()
-        return jsonify({'Status': 'Accept', "Token": token})
+        return jsonify({'Status': 'Accept', "Token": token, 'PasswordMinLength': PASSWORD_MIN_LENGTH})
+    except (DriverError, CommonErrors) as e:
+        print(e.message)
+        return jsonify({'Status': 'Reject'})
+
+
+@Driver_blueprint.route('/registration', methods=['POST', 'OPTIONS'])
+@crossdomain(origin='http://localhost:8100')
+def registration():
+    try:
+        Driver.registration()
+        return jsonify({'Status': 'Accept'})
     except (DriverError, CommonErrors) as e:
         print(e.message)
         return jsonify({'Status': 'Reject'})
