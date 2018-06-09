@@ -13,8 +13,8 @@ Driver_blueprint = Blueprint('driver', __name__)
 @crossdomain(origin='http://localhost:8100')
 def login():
     try:
-        token = Driver.login()
-        return jsonify({'Status': 'Accept', 'Token': token})
+        token, image = Driver.login()
+        return jsonify({'Status': 'Accept', 'Token': token, "Image": image.read().decode()})
     except (DriverError, CommonErrors) as e:
         print(e.message)
         return jsonify({'Status': 'Reject'})
@@ -85,4 +85,4 @@ def registration():
         return jsonify({'Status': 'Accept'})
     except (DriverError, CommonErrors) as e:
         print(e.message)
-        return jsonify({'Status': 'Reject'})
+        return jsonify({'Status': 'Reject', "Message": e.message})

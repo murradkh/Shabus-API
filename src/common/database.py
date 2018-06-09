@@ -1,6 +1,7 @@
 import os
 
 import pymongo
+from gridfs import GridFS
 
 from src.common.errors import DBErrors
 
@@ -64,3 +65,18 @@ class Database(object):
                                              'expireAfterSeconds': expire_after_seconds})
         except:  # thats in case the index is not set yet in the collection
             Database.database[collection].ensure_index(index_field, expireAfterSeconds=expire_after_seconds)
+
+    @staticmethod
+    def find_image(collection, filter):
+        fs = GridFS(Database.database, collection=collection)
+        image = fs.find_one(filter=filter)
+        if image is None:
+            raise DBErrors("the image not found!")
+        return image
+
+    @staticmethod
+    def save_image(collection, image_details, image):
+        fs = GridFS(Database.database, collection=collection)
+        image_fs = fs.new_file(**image_details)
+        image_fs.write(image.encode())
+        image_fs.close()

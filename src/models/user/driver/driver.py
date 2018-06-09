@@ -69,7 +69,8 @@ class Driver(object):
 
     @staticmethod
     def registration():
-        name, phone_number, email, password = Driver.check_json_vaild('Name', "PhoneNumber", 'Email', 'Password')
+        name, phone_number, email, password, birthday, image = Driver.check_json_vaild('Name', "PhoneNumber", 'Email',
+                                                                                       'Password', 'Birthday', 'Image')
         try:
             Driver.check_phone_number_validation(phone_number=phone_number)
         except DriverError:
@@ -78,23 +79,15 @@ class Driver(object):
             except DriverNotExistError:
                 Utils.password_isvalid(password, PASSWORD_MIN_LENGTH)
                 hashed_password = Utils.hash_password(password)
-                query = {"Name": name, "PhoneNumber": phone_number, "Email": email, "Password": hashed_password,
+                query = {"Name": name, "PhoneNumber": phone_number, "Email": email, 'Birthday': birthday,
+                         "Password": hashed_password,
                          "_id": uuid.uuid4().hex}
                 Database.save_to_db(collection=DB_COLLECTION_DRIVER, query=query)
-
+                Driver.save_image({"Name": name, "PhoneNumber": phone_number}, image)
             else:
                 raise DriverExistError("the driver email already exist!")
         else:
             raise DriverExistError("the driver phone number already exist!")
-
-    @staticmethod
-    def check_json_vaild(
-            *args):
-        try:
-            content = request.get_json()
-            return tuple([content[i] for i in args] if len(args) != 0 else content)
-        except KeyError:
-            raise JsonInValid('The Json file is not valid')
 
     @staticmethod
     def find_driver(query, options=None):
@@ -112,7 +105,8 @@ class Driver(object):
         wanted_keys = {'Name', 'PhoneNumber', 'Email'}
         token_data = {key: value for key, value in driver_data.items() if key in wanted_keys}
         token = Utils.create_token(token_data, life_time_hours=TOKEN_LIFETIME)
-        return token
+        image = Driver.get_image({"PhoneNumber": phone_number})
+        return token, image
 
     @staticmethod
     def get_coordination(query, options):
@@ -153,3 +147,20 @@ class Driver(object):
     @staticmethod
     def update_db(query, update, upsert=False):
         Database.update(DB_COLLECTION_DRIVER, query, update, upsert)
+
+    @staticmethod
+    def get_image(filter):
+        return Database.find_image(collection=DB_COLLECION_IMAGES, filter=filter)
+
+    @staticmethod
+    def save_image(image_details, image):
+        Database.save_image(collection=DB_COLLECION_IMAGES, image_details=image_details, image=image)
+
+    @staticmethod
+    def check_json_vaild(
+            *args):
+        try:
+            content = request.get_json()
+            return tuple([content[i] for i in args] if len(args) != 0 else content)
+        except KeyError:
+            raise JsonInValid('The Json file is not valid')

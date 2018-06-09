@@ -29,3 +29,4 @@ class PasswordInValid(CommonErrors):
 
 class HashingPasswordFailed(CommonErrors):
     pass
+
