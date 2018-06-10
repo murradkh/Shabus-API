@@ -17,8 +17,8 @@ class Utils(object):
             raise FormatEmailInvalid('email format not valid')
 
     @staticmethod
-    def password_isvalid(password, min_length):
-        matcher = re.compile("^(([0-9]+[a-zA-z]+[0-9]*)|([a-zA-Z]+[0-9]+[a-zA-Z]*))+$")
+    def password_isvalid(password, min_length, regex):
+        matcher = re.compile(regex)
         if not (matcher.match(password) and len(password) >= min_length):
             raise PasswordInValid("the password not according to the rules")
 

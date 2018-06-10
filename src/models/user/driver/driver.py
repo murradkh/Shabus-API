@@ -22,7 +22,7 @@ class Driver(object):
 
     @staticmethod
     def check_password_validation(password, driver_data):
-        Utils.password_isvalid(password, PASSWORD_MIN_LENGTH)
+        Utils.password_isvalid(password, PASSWORD_MIN_LENGTH, PASSWORD_PATTERN)
         if not Utils.passwords_matching(password, driver_data['Password']):
             raise InCorrectPasswordError("wrong password associated with user email")
 
@@ -44,12 +44,13 @@ class Driver(object):
         restoration_code['Password restoration code'] = code_number
         Driver.update_db({"PhoneNumber": phone_number}, restoration_code)
         token = Utils.create_token({"PhoneNumber": driver_data['PhoneNumber']}, life_time_minutes=CODE_NUMBER_DURATION)
-        return token, driver_data['Name']
+        image = Driver.get_image({"PhoneNumber": driver_data['PhoneNumber']})
+        return token, image
 
     @staticmethod
     def change_password():
         token, new_password = Driver.check_json_vaild('Token', 'NewPassword')
-        Utils.password_isvalid(new_password, PASSWORD_MIN_LENGTH)
+        Utils.password_isvalid(new_password, PASSWORD_MIN_LENGTH, PASSWORD_PATTERN)
         decoded_token = Utils.decode_token(token)
         hashed_password = Utils.hash_password(new_password)
         Driver.update_db({'PhoneNumber': decoded_token['PhoneNumber']},
@@ -77,7 +78,7 @@ class Driver(object):
             try:
                 Driver.check_email_validation(email=email)
             except DriverNotExistError:
-                Utils.password_isvalid(password, PASSWORD_MIN_LENGTH)
+                Utils.password_isvalid(password, PASSWORD_MIN_LENGTH, PASSWORD_PATTERN)
                 hashed_password = Utils.hash_password(password)
                 query = {"Name": name, "PhoneNumber": phone_number, "Email": email, 'Birthday': birthday,
                          "Password": hashed_password,
@@ -88,6 +89,18 @@ class Driver(object):
                 raise DriverExistError("the driver email already exist!")
         else:
             raise DriverExistError("the driver phone number already exist!")
+
+    @staticmethod
+    def edit_details():
+        token, = Driver.check_json_vaild("Token")
+        decoded_token = Utils.decode_token(token=token)
+        Driver.delete_driver(decoded_token['PhoneNumber'])
+        Driver.registration()
+        name, phone_number, email, birthday = Driver.check_json_vaild('Name', "PhoneNumber", "Email", 'Birthday')
+        new_token = Utils.create_token(
+            {"Name": name, "PhoneNumber": phone_number, "Email": email, "Birthday": birthday},
+            life_time_hours=TOKEN_LIFETIME)
+        return new_token
 
     @staticmethod
     def find_driver(query, options=None):
@@ -102,7 +115,7 @@ class Driver(object):
         driver_data = Driver.check_phone_number_validation(phone_number=phone_number)
         Driver.check_password_validation(password, driver_data)
         Driver.store_driver_shift(driver_data, coordination)
-        wanted_keys = {'Name', 'PhoneNumber', 'Email'}
+        wanted_keys = {'Name', 'PhoneNumber', 'Email', 'Birthday'}
         token_data = {key: value for key, value in driver_data.items() if key in wanted_keys}
         token = Utils.create_token(token_data, life_time_hours=TOKEN_LIFETIME)
         image = Driver.get_image({"PhoneNumber": phone_number})
@@ -164,3 +177,8 @@ class Driver(object):
             return tuple([content[i] for i in args] if len(args) != 0 else content)
         except KeyError:
             raise JsonInValid('The Json file is not valid')
+
+    @staticmethod
+    def delete_driver(phone_number):
+        Database.delete(DB_COLLECTION_DRIVER, {"PhoneNumber": phone_number})
+        Database.delete_image(DB_COLLECION_IMAGES, {"PhoneNumber": phone_number})

@@ -8,4 +8,4 @@ CODE_NUMBER_DURATION = 1  # in minutes
 CHANGING_PASSWORD_DURATION = 5  # in minutes
 TOKEN_LIFETIME = 6  # in hours
 PASSWORD_MIN_LENGTH = 6
-
+PASSWORD_PATTERN = "^(([0-9]+[a-zA-z]+[0-9]*)|([a-zA-Z]+[0-9]+[a-zA-Z]*))+$"

@@ -80,3 +80,18 @@ class Database(object):
         image_fs = fs.new_file(**image_details)
         image_fs.write(image.encode())
         image_fs.close()
+
+    @staticmethod
+    def delete_image(collection, filter):
+        fs = GridFS(Database.database, collection=collection)
+        image_grid_out = fs.find_one(filter)
+        if image_grid_out is None:
+            raise DBErrors("the image not found!")
+        fs.delete(image_grid_out._id)
+
+    @staticmethod
+    def delete(collection, filter):
+        data = Database.database[collection].remove(filter)
+        if data is None:
+            raise DBErrors("the data not found in db")
+        return data
