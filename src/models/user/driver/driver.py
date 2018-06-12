@@ -87,7 +87,9 @@ class Driver(object):
                          "Confirmed account": False}
                 Database.save_to_db(collection=DB_COLLECTION_DRIVER, query=query)
                 Driver.save_image({"Name": name, "PhoneNumber": phone_number}, image)
-                SMS.send_sms(phone_number, ACTIVATING_ACCOUNT_SMS_MESSAGE + '\nwww.google.com')
+                SMS.send_sms(phone_number,
+                             ACTIVATING_ACCOUNT_SMS_MESSAGE + "\nhttps://shabus-21aa4.firebaseapp.com/confirmation/" + str(
+                                 query['_id']))
             else:
                 raise DriverExistError("the driver email already exist!")
         else:
