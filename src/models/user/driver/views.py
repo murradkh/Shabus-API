@@ -97,3 +97,14 @@ def edit_details():
     except (DriverError, CommonErrors) as e:
         print(e.message)
         return jsonify({'Status': 'Reject', "Message": e.message})
+
+
+@Driver_blueprint.route('/confirmation', methods=['POST', 'OPTIONS'])
+@crossdomain(origin='http://localhost:4200')
+def confirmation():
+    try:
+        name = Driver.confirmation_of_driver_account()
+        return jsonify({'Status': 'Accept', 'Name': name})
+    except (DriverError, CommonErrors) as e:
+        print(e.message)
+        return jsonify({'Status': 'Reject'})

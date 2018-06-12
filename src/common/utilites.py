@@ -54,3 +54,11 @@ class Utils(object):
             return jwt.decode(token, SECRET_KEY)
         except:
             raise TokenInValid('the token is not valid!')
+
+    @staticmethod
+    def check_json_vaild(content,
+                         *args):
+        try:
+            return tuple([content[i] for i in args] if len(args) != 0 else content)
+        except KeyError:
+            raise JsonInValid('The Json file is not valid')

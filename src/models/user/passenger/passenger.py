@@ -16,20 +16,21 @@ class Passenger(object):
     def __init__(self):
         pass
 
-    @staticmethod
-    def check_json_isvaild():
-        try:
-            content = request.get_json()
-            token = content['Token']
-            phone_number = content['PhoneNumber']
-            number_of_passengers = content['Num of passengers']
-            return token, phone_number, number_of_passengers
-        except:
-            raise JsonInValid('The Json file is not valid!')
+    # @staticmethod
+    # def check_json_isvaild():
+    #     try:
+    #         content = request.get_json()
+    #         token = content['Token']
+    #         phone_number = content['PhoneNumber']
+    #         number_of_passengers = content['Num of passengers']
+    #         return token, phone_number, number_of_passengers
+    #     except:
+    #         raise JsonInValid('The Json file is not valid!')
 
     @staticmethod
     def new_ride():
-        token, phone_number, number_of_passengers = Passenger.check_json_isvaild()
+        token, phone_number, number_of_passengers = Utils.check_json_vaild(request.get_json(), "Token", "PhoneNumber",
+                                                                           "Num of passengers")
         Utils.phone_number_Isvalid(phone_number)
         Passenger.check_num_of_passengers(number_of_passengers)
         passenger_details = Passenger.find_passenger(query={'phone_number': phone_number})

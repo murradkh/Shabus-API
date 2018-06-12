@@ -15,9 +15,9 @@ class InCorrectPasswordError(DriverError):
     pass
 
 
-class JsonInValid(DriverError):
+class CodeNumberIsInValid(DriverError):
     pass
 
 
-class CodeNumberIsInValid(DriverError):
+class AccountNotActivated(DriverError):
     pass

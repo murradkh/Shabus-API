@@ -24,7 +24,7 @@ class Driver(object):
     def check_password_validation(password, driver_data):
         Utils.password_isvalid(password, PASSWORD_MIN_LENGTH, PASSWORD_PATTERN)
         if not Utils.passwords_matching(password, driver_data['Password']):
-            raise InCorrectPasswordError("wrong password associated with user email")
+            raise InCorrectPasswordError("wrong password associated with user phoneNumber")
 
     @staticmethod
     def check_phone_number_validation(phone_number):
@@ -34,7 +34,7 @@ class Driver(object):
 
     @staticmethod
     def forget_password():
-        phone_number, = Driver.check_json_vaild('PhoneNumber')
+        phone_number, = Utils.check_json_vaild(request.get_json(), 'PhoneNumber')
         driver_data = Driver.check_phone_number_validation(phone_number=phone_number)
         code_number = random.randrange((10 ** (FORGET_PASSWORD_CODE_LENGTH - 1) + 1), 10 ** FORGET_PASSWORD_CODE_LENGTH,
                                        1)
@@ -49,7 +49,7 @@ class Driver(object):
 
     @staticmethod
     def change_password():
-        token, new_password = Driver.check_json_vaild('Token', 'NewPassword')
+        token, new_password = Utils.check_json_vaild(request.get_json(), 'Token', 'NewPassword')
         Utils.password_isvalid(new_password, PASSWORD_MIN_LENGTH, PASSWORD_PATTERN)
         decoded_token = Utils.decode_token(token)
         hashed_password = Utils.hash_password(new_password)
@@ -58,7 +58,7 @@ class Driver(object):
 
     @staticmethod
     def check_code_number_validation():
-        restoration_code, token = Driver.check_json_vaild('Restoration code', "Token")
+        restoration_code, token = Utils.check_json_vaild(request.get_json(), 'Restoration code', "Token")
         decoded_token = Utils.decode_token(token)
         driver_data = Driver.find_driver(query={'PhoneNumber': decoded_token['PhoneNumber']},
                                          options={'Password restoration code': 1})
@@ -70,8 +70,9 @@ class Driver(object):
 
     @staticmethod
     def registration():
-        name, phone_number, email, password, birthday, image = Driver.check_json_vaild('Name', "PhoneNumber", 'Email',
-                                                                                       'Password', 'Birthday', 'Image')
+        name, phone_number, email, password, birthday, image = Utils.check_json_vaild(request.get_json(), 'Name',
+                                                                                      "PhoneNumber", 'Email',
+                                                                                      'Password', 'Birthday', 'Image')
         try:
             Driver.check_phone_number_validation(phone_number=phone_number)
         except DriverError:
@@ -82,9 +83,11 @@ class Driver(object):
                 hashed_password = Utils.hash_password(password)
                 query = {"Name": name, "PhoneNumber": phone_number, "Email": email, 'Birthday': birthday,
                          "Password": hashed_password,
-                         "_id": uuid.uuid4().hex}
+                         "_id": uuid.uuid4().hex,
+                         "Confirmed account": False}
                 Database.save_to_db(collection=DB_COLLECTION_DRIVER, query=query)
                 Driver.save_image({"Name": name, "PhoneNumber": phone_number}, image)
+                SMS.send_sms(phone_number, ACTIVATING_ACCOUNT_SMS_MESSAGE + '\nwww.google.com')
             else:
                 raise DriverExistError("the driver email already exist!")
         else:
@@ -92,11 +95,12 @@ class Driver(object):
 
     @staticmethod
     def edit_details():
-        token, = Driver.check_json_vaild("Token")
+        token, = Utils.check_json_vaild(request.get_json(), "Token")
         decoded_token = Utils.decode_token(token=token)
         Driver.delete_driver(decoded_token['PhoneNumber'])
         Driver.registration()
-        name, phone_number, email, birthday = Driver.check_json_vaild('Name', "PhoneNumber", "Email", 'Birthday')
+        name, phone_number, email, birthday = Utils.check_json_vaild(request.get_json(), 'Name', "PhoneNumber", "Email",
+                                                                     'Birthday')
         new_token = Utils.create_token(
             {"Name": name, "PhoneNumber": phone_number, "Email": email, "Birthday": birthday},
             life_time_hours=TOKEN_LIFETIME)
@@ -111,9 +115,12 @@ class Driver(object):
 
     @staticmethod
     def login():
-        phone_number, password, coordination = Driver.check_json_vaild('PhoneNumber', "Password", 'Coordination')
+        phone_number, password, coordination = Utils.check_json_vaild(request.get_json(), 'PhoneNumber', "Password",
+                                                                      'Coordination')
         driver_data = Driver.check_phone_number_validation(phone_number=phone_number)
         Driver.check_password_validation(password, driver_data)
+        if driver_data['Confirmed account'] is False:
+            raise AccountNotActivated("the account not yet activated!")
         Driver.store_driver_shift(driver_data, coordination)
         wanted_keys = {'Name', 'PhoneNumber', 'Email', 'Birthday'}
         token_data = {key: value for key, value in driver_data.items() if key in wanted_keys}
@@ -139,14 +146,14 @@ class Driver(object):
 
     @staticmethod
     def update_coordination():
-        token, coordination = Driver.check_json_vaild("Token", "Coordination")
+        token, coordination = Utils.check_json_vaild(request.get_json(), "Token", "Coordination")
         decoded_token = Utils.decode_token(token=token)
         Database.update(DB_collection_current_driver_shift, {'Email': decoded_token['Email']},
                         {"Current location": coordination}, False)
 
     @staticmethod
     def logout():
-        token, = Driver.check_json_vaild("Token")
+        token, = Utils.check_json_vaild(request.get_json(), "Token")
         decoded_token = Utils.decode_token(token=token)
         current_shift = Database.find_one_and_delete(collection=DB_collection_current_driver_shift,
                                                      query={'Email': decoded_token['Email']})
@@ -170,15 +177,13 @@ class Driver(object):
         Database.save_image(collection=DB_COLLECION_IMAGES, image_details=image_details, image=image)
 
     @staticmethod
-    def check_json_vaild(
-            *args):
-        try:
-            content = request.get_json()
-            return tuple([content[i] for i in args] if len(args) != 0 else content)
-        except KeyError:
-            raise JsonInValid('The Json file is not valid')
-
-    @staticmethod
     def delete_driver(phone_number):
         Database.delete(DB_COLLECTION_DRIVER, {"PhoneNumber": phone_number})
         Database.delete_image(DB_COLLECION_IMAGES, {"PhoneNumber": phone_number})
+
+    @staticmethod
+    def confirmation_of_driver_account():
+        id, = Utils.check_json_vaild(request.get_json(), "id")
+        data = Driver.find_driver({"_id": id}, {"Name": 1})
+        Driver.update_db({'_id': id}, {"Confirmed account": True})
+        return data['Name']
