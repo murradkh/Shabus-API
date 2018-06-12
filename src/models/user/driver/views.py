@@ -100,7 +100,7 @@ def edit_details():
 
 
 @Driver_blueprint.route('/confirmation', methods=['POST', 'OPTIONS'])
-@crossdomain(origin='http://localhost:4200')
+@crossdomain(origin='https://shabus-21aa4.firebaseapp.com')
 def confirmation():
     try:
         name = Driver.confirmation_of_driver_account()
