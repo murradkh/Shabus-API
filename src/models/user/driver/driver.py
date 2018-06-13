@@ -137,6 +137,9 @@ class Driver(object):
     @staticmethod
     def store_driver_shift(query, coordination):  # storing the driver in database as current driver shift
         query.pop('Password')
+        query.pop('Birthday')
+        query.pop('Confirmed account')
+
         d = datetime.datetime.now().strftime("%H:%M")  # adding the time when the driver start the shift
         query.update(
             {"Started at": d, 'Start location': coordination, "Date": datetime.datetime.utcnow().strftime("%Y/%m/%d"),

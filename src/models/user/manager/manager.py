@@ -17,8 +17,8 @@ class Manager(object):
         wanted_keys = {'Name', 'PhoneNumber'}
         token_data = {key: value for key, value in manager_data.items() if key in wanted_keys}
         token = Utils.create_token(token_data, life_time_hours=TOKEN_LIFETIME)
-        image = Manager.get_image({"PhoneNumber": phone_number})
-        return token, image
+        # image = Manager.get_image({"PhoneNumber": phone_number})
+        return token
 
     @staticmethod
     def check_phone_number_validation(phone_number):
@@ -40,5 +40,9 @@ class Manager(object):
             raise InCorrectPasswordError("wrong password associated with user phoneNumber")
 
     @staticmethod
-    def get_image(filter):
-        return Database.find_image(collection=DB_COLLECION_IMAGES, filter=filter)
+    def get_data(collection):
+        return Database.find(collection=collection, query={}, options={'_id': 0})
+
+    # @staticmethod
+    # def get_image(filter):
+    #     return Database.find_image(collection=DB_COLLECION_IMAGES, filter=filter)
