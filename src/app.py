@@ -14,6 +14,9 @@ app.secret_key = app.config['SECRET_KEY']
 @app.before_first_request
 def ini_db():
     Database.init_Database()
+    Database.set_ttl_for_collection("New rides", index_field='created_at', expire_after_seconds=30 * 24 * 60 * 60)
+    Database.set_ttl_for_collection("Current shifts", index_field='created_at', expire_after_seconds=30 * 24 * 60 * 60)
+    Database.set_ttl_for_collection("Previous shifts", index_field='created_at', expire_after_seconds=30 * 24 * 60 * 60)
 
 
 @app.route('/')

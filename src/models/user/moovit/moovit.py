@@ -13,17 +13,9 @@ from .errors import *
 
 class Moovit(object):
 
-    # @staticmethod
-    # def check_json_valid():
-    #     try:
-    #         content = request.get_json()
-    #         return content['PhoneNumber'], content['Token']
-    #     except KeyError:
-    #         raise JsonInValid('The Json file is not valid')
-
     @staticmethod
     def use_moovit_feature():
-
+        print(request.get_json())
         phone_number, token = Utils.check_json_vaild(request.get_json(), "PhoneNumber", "Token")
         Utils.phone_number_Isvalid(phone_number=phone_number)
         query = {}

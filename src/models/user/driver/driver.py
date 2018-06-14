@@ -123,7 +123,7 @@ class Driver(object):
         Driver.check_password_validation(password, driver_data)
         if driver_data['Confirmed account'] is False:
             raise AccountNotActivated("the account not yet activated!")
-        Driver.store_driver_shift(driver_data, coordination)
+        Driver.store_driver_shift(driver_data.copy(), coordination)
         wanted_keys = {'Name', 'PhoneNumber', 'Email', 'Birthday'}
         token_data = {key: value for key, value in driver_data.items() if key in wanted_keys}
         token = Utils.create_token(token_data, life_time_hours=TOKEN_LIFETIME)
