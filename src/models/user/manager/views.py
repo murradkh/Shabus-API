@@ -9,7 +9,7 @@ manager_blueprint = Blueprint('manager', __name__)
 
 
 @manager_blueprint.route('/login', methods=['POST', 'OPTIONS'])
-@crossdomain(origin='http://localhost:4200')
+@crossdomain(origin='https://shabus-21aa4.firebaseapp.com')
 def login():
     try:
         token = Manager.login()
