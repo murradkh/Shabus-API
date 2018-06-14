@@ -69,7 +69,7 @@ class Driver(object):
         return Utils.create_token(token_data, life_time_minutes=CHANGING_PASSWORD_DURATION)
 
     @staticmethod
-    def registration():
+    def registration(mode):
         name, phone_number, email, password, birthday, image = Utils.check_json_vaild(request.get_json(), 'Name',
                                                                                       "PhoneNumber", 'Email',
                                                                                       'Password', 'Birthday', 'Image')
@@ -87,9 +87,10 @@ class Driver(object):
                          "Confirmed account": False}
                 Database.save_to_db(collection=DB_COLLECTION_DRIVER, query=query)
                 Driver.save_image({"Name": name, "PhoneNumber": phone_number}, image)
-                SMS.send_sms(phone_number,
-                             ACTIVATING_ACCOUNT_SMS_MESSAGE + "\nhttps://shabus-21aa4.firebaseapp.com/confirmation/" + str(
-                                 query['_id']))
+                if mode != 'edit_mode':
+                    SMS.send_sms(phone_number,
+                                 ACTIVATING_ACCOUNT_SMS_MESSAGE + "\nhttps://shabus-21aa4.firebaseapp.com/confirmation/" + str(
+                                     query['_id']))
             else:
                 raise DriverExistError("the driver email already exist!")
         else:
@@ -100,7 +101,7 @@ class Driver(object):
         token, = Utils.check_json_vaild(request.get_json(), "Token")
         decoded_token = Utils.decode_token(token=token)
         Driver.delete_driver(decoded_token['PhoneNumber'])
-        Driver.registration()
+        Driver.registration('edit_mode')
         name, phone_number, email, birthday = Utils.check_json_vaild(request.get_json(), 'Name', "PhoneNumber", "Email",
                                                                      'Birthday')
         new_token = Utils.create_token(
