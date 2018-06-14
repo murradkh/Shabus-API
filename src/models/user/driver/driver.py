@@ -81,6 +81,7 @@ class Driver(object):
             except DriverNotExistError:
                 Utils.password_isvalid(password, PASSWORD_MIN_LENGTH, PASSWORD_PATTERN)
                 hashed_password = Utils.hash_password(password)
+                confirmed_account = True if mode != 'edit_mode' else False
                 query = {"Name": name, "PhoneNumber": phone_number, "Email": email, 'Birthday': birthday,
                          "Password": hashed_password,
                          "_id": uuid.uuid4().hex,
