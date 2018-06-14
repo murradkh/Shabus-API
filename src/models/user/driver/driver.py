@@ -81,11 +81,11 @@ class Driver(object):
             except DriverNotExistError:
                 Utils.password_isvalid(password, PASSWORD_MIN_LENGTH, PASSWORD_PATTERN)
                 hashed_password = Utils.hash_password(password)
-                confirmed_account = True if mode != 'edit_mode' else False
+                confirmed_account = False if mode != 'edit_mode' else True
                 query = {"Name": name, "PhoneNumber": phone_number, "Email": email, 'Birthday': birthday,
                          "Password": hashed_password,
                          "_id": uuid.uuid4().hex,
-                         "Confirmed account": False}
+                         "Confirmed account": confirmed_account}
                 Database.save_to_db(collection=DB_COLLECTION_DRIVER, query=query)
                 Driver.save_image({"Name": name, "PhoneNumber": phone_number}, image)
                 if mode != 'edit_mode':
