@@ -20,7 +20,7 @@ def login():
 
 
 @manager_blueprint.route('/<string:param>', methods=['GET', 'OPTIONS'])
-@crossdomain(origin='http://localhost:4200')
+@crossdomain(origin='https://shabus-21aa4.firebaseapp.com')
 def get_data(param):
     data = Manager.get_data(collection=param)
     d = [x for x in data]
