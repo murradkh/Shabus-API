@@ -25,3 +25,4 @@ def get_data(param):
     data = Manager.get_data(collection=param)
     d = [x for x in data]
     return jsonify({'Status': 'Accept', "Data": d})
+
