@@ -22,15 +22,6 @@ def login():
 @manager_blueprint.route('/<string:param>', methods=['GET', 'OPTIONS'])
 @crossdomain(origin='http://localhost:4200')
 def get_data(param):
-    print(param)
     data = Manager.get_data(collection=param)
-    d = {i: x for i, x in enumerate(data)}
-    print(d)
-    # return 'ok'
+    d = [x for x in data]
     return jsonify({'Status': 'Accept', "Data": d})
-#     for i in data:
-#         print(i)
-#     return jsonify({'Status': 'Accept', "Data": data})
-# except (ManagerError, CommonErrors) as e:
-#     print(e.message)
-#     return jsonify({'Status': 'Reject'})
