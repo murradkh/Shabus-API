@@ -69,7 +69,7 @@ class Driver(object):
         return Utils.create_token(token_data, life_time_minutes=CHANGING_PASSWORD_DURATION)
 
     @staticmethod
-    def registration(mode):
+    def registration(mode="registration_mode"):
         name, phone_number, email, password, birthday, image = Utils.check_json_vaild(request.get_json(), 'Name',
                                                                                       "PhoneNumber", 'Email',
                                                                                       'Password', 'Birthday', 'Image')
