@@ -6,13 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3e23ba85-4851-4579-9539-22cab7bcaf12" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/common/decorator.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/decorator.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/user/driver/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user/driver/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/user/manager/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user/manager/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/user/moovit/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user/moovit/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/user/passenger/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user/passenger/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/venv/pip-selfcheck.json" beforeDir="false" afterPath="$PROJECT_DIR$/venv/pip-selfcheck.json" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -30,7 +23,7 @@
       <file leaf-file-name="driver.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/user/driver/driver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
+            <state relative-caret-position="1853">
               <caret line="120" column="13" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="13" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
@@ -51,11 +44,8 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/user/manager/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
+            <state relative-caret-position="187">
               <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-              <folding>
-                <element signature="e#0#45#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -63,44 +53,26 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/user/moovit/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="240">
+            <state relative-caret-position="221">
               <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="moovit.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/user/moovit/moovit.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="17" column="32" selection-start-line="17" selection-start-column="32" selection-end-line="17" selection-end-column="32" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="app.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="app.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="18" selection-start-line="18" selection-end-line="18" />
-              <folding>
-                <element signature="e#0#23#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="68">
+              <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/user/passenger/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-              <folding>
-                <element signature="e#0#36#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="272">
+              <caret line="20" selection-start-line="20" selection-end-line="20" />
             </state>
           </provider>
         </entry>
@@ -108,7 +80,7 @@
       <file leaf-file-name="Unused code" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Unused code">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="129">
+            <state relative-caret-position="1258">
               <caret line="74" column="57" selection-start-line="74" selection-start-column="52" selection-end-line="74" selection-end-column="57" />
             </state>
           </provider>
@@ -117,11 +89,20 @@
       <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/user/driver/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="272">
-              <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+            <state relative-caret-position="17">
+              <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
               <folding>
                 <element signature="e#0#45#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="requirements.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -205,7 +186,6 @@
         <option value="$PROJECT_DIR$/src/models/User/Driver/views.py" />
         <option value="$PROJECT_DIR$/src/Common/Database.py" />
         <option value="$PROJECT_DIR$/src/Common/Utilites.py" />
-        <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/src/Common/sms.py" />
         <option value="$PROJECT_DIR$/src/models/User/Driver/driver.py" />
         <option value="$PROJECT_DIR$/src/models/user/Passenger/passenger.py" />
@@ -232,9 +212,10 @@
         <option value="$PROJECT_DIR$/src/common/decorator.py" />
         <option value="$PROJECT_DIR$/src/models/user/driver/views.py" />
         <option value="$PROJECT_DIR$/src/models/user/moovit/views.py" />
-        <option value="$PROJECT_DIR$/src/models/user/passenger/views.py" />
-        <option value="$PROJECT_DIR$/src/app.py" />
         <option value="$PROJECT_DIR$/src/models/user/manager/views.py" />
+        <option value="$PROJECT_DIR$/src/models/user/passenger/views.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
+        <option value="$PROJECT_DIR$/src/app.py" />
       </list>
     </option>
   </component>
@@ -270,34 +251,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Shabus-API" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Shabus-API" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Shabus-API" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Shabus-API" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Shabus-API" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Shabus-API" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Common" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Shabus-API" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Shabus-API" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="models" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Project Files">
           <expand>
@@ -360,6 +313,34 @@
               <item name="models" type="cbb8eebc:String" user="models" />
               <item name="user" type="cbb8eebc:String" user="user" />
               <item name="passenger" type="cbb8eebc:String" user="passenger" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Shabus-API" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Shabus-API" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Shabus-API" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Shabus-API" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Shabus-API" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Shabus-API" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Common" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Shabus-API" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Shabus-API" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -741,19 +722,33 @@
       <option name="project" value="LOCAL" />
       <updated>1529059096363</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="deleting the cors decorator and adding instead of it 'Flask-cors'.">
+      <created>1529086470586</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1529086470586</updated>
+    </task>
+    <task id="LOCAL-00035" summary="..">
+      <created>1529087176812</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1529087176812</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1382" height="744" extended-state="7" />
+    <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.4988662" visible="true" weight="0.18155198" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4988662" visible="true" weight="0.18155198" />
       <window_info anchor="bottom" id="TODO" order="5" />
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50073206" side_tool="true" weight="0.3290938" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32952693" />
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.72019076" />
-      <window_info active="true" anchor="bottom" id="Run" order="6" sideWeight="0.49926794" visible="true" weight="0.29888713" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49926794" weight="0.29888713" />
       <window_info id="Structure" order="1" sideWeight="0.5011338" side_tool="true" weight="0.18155198" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.3290938" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -775,7 +770,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="Adding passenger files and functions." />
     <MESSAGE value="refining passenger model, and adding more functions in appropiate." />
     <MESSAGE value="refining passenger model..." />
     <MESSAGE value="refining the names of the functions to be lowercase(because this is the convention)" />
@@ -796,11 +790,12 @@
     <MESSAGE value="adding the functions for 'edit_details' of the driver." />
     <MESSAGE value="1) adding the manager model&#10;2) adding the confirmation driver account." />
     <MESSAGE value="editing the crossdomain" />
-    <MESSAGE value=".." />
     <MESSAGE value="editing the driver feature" />
     <MESSAGE value="editing the manager feature" />
     <MESSAGE value="refining..." />
-    <option name="LAST_COMMIT_MESSAGE" value="refining..." />
+    <MESSAGE value="deleting the cors decorator and adding instead of it 'Flask-cors'." />
+    <MESSAGE value=".." />
+    <option name="LAST_COMMIT_MESSAGE" value=".." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -984,13 +979,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/requirements.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/user/passenger/errors.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1086,14 +1074,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Unused code">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
+        <state relative-caret-position="1258">
           <caret line="74" column="57" selection-start-line="74" selection-start-column="52" selection-end-line="74" selection-end-column="57" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/user/driver/driver.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="122">
+        <state relative-caret-position="1853">
           <caret line="120" column="13" selection-start-line="120" selection-start-column="8" selection-end-line="120" selection-end-column="13" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
@@ -1103,54 +1091,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/user/moovit/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
+        <state relative-caret-position="221">
           <caret line="17" column="37" selection-start-line="17" selection-start-column="37" selection-end-line="17" selection-end-column="37" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/user/manager/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
+        <state relative-caret-position="187">
           <caret line="15" column="32" selection-start-line="15" selection-start-column="32" selection-end-line="15" selection-end-column="32" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/user/driver/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="16" column="28" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
-          <folding>
-            <element signature="e#0#45#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/common/decorator.py">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app.py">
+    <entry file="file://$PROJECT_DIR$/src/models/user/passenger/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="18" selection-start-line="18" selection-end-line="18" />
+        <state relative-caret-position="272">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" selection-start-line="11" selection-end-line="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/user/driver/views.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="18" column="24" selection-start-line="18" selection-start-column="24" selection-end-line="18" selection-end-column="24" />
           <folding>
-            <element signature="e#0#23#0" expanded="true" />
+            <element signature="e#0#45#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/user/passenger/views.py">
+    <entry file="file://$PROJECT_DIR$/src/app.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="68">
+          <caret line="11" column="5" lean-forward="true" selection-start-line="11" selection-start-column="5" selection-end-line="11" selection-end-column="5" />
         </state>
       </provider>
     </entry>
