@@ -45,7 +45,7 @@ def logout():
 
 
 @Driver_blueprint.route('/forget-password', methods=['POST', 'OPTIONS'])
-@crossdomain(origin="http://localhost:8100/")
+@crossdomain(origin="http://localhost:8100")
 def forget_password():
     if request.method == 'OPTIONS':
         return 'ok'
