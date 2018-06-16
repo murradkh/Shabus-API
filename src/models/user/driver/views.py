@@ -1,5 +1,6 @@
 from flask import Blueprint, jsonify, request
 
+from src.common.decorator import crossdomain
 from src.common.errors import CommonErrors
 from .constants import *
 from .driver import Driver
@@ -44,6 +45,7 @@ def logout():
 
 
 @Driver_blueprint.route('/forget-password', methods=['POST', 'OPTIONS'])
+@crossdomain(origin="http://localhost:8100/")
 def forget_password():
     if request.method == 'OPTIONS':
         return 'ok'
