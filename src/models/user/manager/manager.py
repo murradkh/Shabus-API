@@ -58,6 +58,10 @@ class Manager(object):
     def delete(collection):
         token, phone_number = Utils.check_json_vaild(request.get_json(), "Token", 'PhoneNumber')
         Utils.decode_token(token=token)
-        Database.delete(collection, {"PhoneNumber": phone_number})
-        Database.delete(collection, {"phone_number": phone_number})
-        Database.delete_image(DB_COLLECION_IMAGES, {"PhoneNumber": phone_number})
+        if collection == 'Passengers':
+            Database.delete(collection, {"phone_number": phone_number})
+        elif collection == 'Drivers':
+            Database.delete(collection, {"PhoneNumber": phone_number})
+            Database.delete_image(DB_COLLECION_IMAGES, {"PhoneNumber": phone_number})
+        else:
+            Database.delete(collection, {"PhoneNumber": phone_number})
