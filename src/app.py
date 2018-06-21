@@ -15,7 +15,7 @@ app.secret_key = app.config['SECRET_KEY']
 
 @app.before_first_request
 def ini_db():
-    Database.init_Database()
+    Database.init_database()
 
 
 @app.route('/')

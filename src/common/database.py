@@ -11,7 +11,7 @@ class Database(object):
     database = None
 
     @staticmethod
-    def init_Database():
+    def init_database():
         Database.URI = os.environ.get('MONGODB_URI')
         client = pymongo.MongoClient(Database.URI)
         Database.database = client.get_database()

@@ -19,10 +19,25 @@ def login():
         return jsonify({'Status': 'Reject'})
 
 
-@manager_blueprint.route('/<string:param>', methods=['GET', 'OPTIONS'])
+@manager_blueprint.route('/Get/<string:param>', methods=['POST', 'OPTIONS'])
 def get_data(param):
     if request.method == 'OPTIONS':
         return 'ok'
-    data = Manager.get_data(collection=param)
-    d = [x for x in data]
-    return jsonify({'Status': 'Accept', "Data": d})
+    try:
+        data = Manager.get_data(collection=param)
+        return jsonify({'Status': 'Accept', "Data": data})
+    except (ManagerError, CommonErrors) as e:
+        print(e.message)
+        return jsonify({'Status': 'Reject'})
+
+
+@manager_blueprint.route('/Delete/<string:param>', methods=['POST', 'OPTIONS'])
+def delete_data(param):
+    if request.method == 'OPTIONS':
+        return 'ok'
+    try:
+        data = Manager.delete(collection=param)
+        return jsonify({'Status': 'Accept', "Data": data})
+    except (ManagerError, CommonErrors) as e:
+        print(e.message)
+        return jsonify({'Status': 'Reject'})

@@ -72,7 +72,7 @@ class Driver(object):
     def registration(mode="registration_mode"):
         name, phone_number, email, password, birthday, image = Utils.check_json_vaild(request.get_json(), 'Name',
                                                                                       "PhoneNumber", 'Email',
-                                                                                      'Password', 'Birthday', 'Image')
+                                                                                      'Password', 'BirthDate', 'Image')
         try:
             Driver.check_phone_number_validation(phone_number=phone_number)
         except DriverError:
@@ -82,7 +82,7 @@ class Driver(object):
                 Utils.password_isvalid(password, PASSWORD_MIN_LENGTH, PASSWORD_PATTERN)
                 hashed_password = Utils.hash_password(password)
                 confirmed_account = False if mode != 'edit_mode' else True
-                query = {"Name": name, "PhoneNumber": phone_number, "Email": email, 'Birthday': birthday,
+                query = {"Name": name, "PhoneNumber": phone_number, "Email": email, 'BirthDate': birthday,
                          "Password": hashed_password,
                          "_id": uuid.uuid4().hex,
                          "Confirmed account": confirmed_account}
@@ -104,9 +104,9 @@ class Driver(object):
         Driver.delete_driver(decoded_token['PhoneNumber'])
         Driver.registration('edit_mode')
         name, phone_number, email, birthday = Utils.check_json_vaild(request.get_json(), 'Name', "PhoneNumber", "Email",
-                                                                     'Birthday')
+                                                                     'BirthDate')
         new_token = Utils.create_token(
-            {"Name": name, "PhoneNumber": phone_number, "Email": email, "Birthday": birthday},
+            {"Name": name, "PhoneNumber": phone_number, "Email": email, "BirthDate": birthday},
             life_time_hours=TOKEN_LIFETIME)
         return new_token
 
@@ -126,7 +126,7 @@ class Driver(object):
         if driver_data['Confirmed account'] is False:
             raise AccountNotActivated("the account not yet activated!")
         Driver.store_driver_shift(driver_data.copy(), coordination)
-        wanted_keys = {'Name', 'PhoneNumber', 'Email', 'Birthday'}
+        wanted_keys = {'Name', 'PhoneNumber', 'Email', 'BirthDate'}
         token_data = {key: value for key, value in driver_data.items() if key in wanted_keys}
         token = Utils.create_token(token_data, life_time_hours=TOKEN_LIFETIME)
         image = Driver.get_image({"PhoneNumber": phone_number})
@@ -139,7 +139,7 @@ class Driver(object):
     @staticmethod
     def store_driver_shift(query, coordination):  # storing the driver in database as current driver shift
         query.pop('Password')
-        query.pop('Birthday')
+        query.pop('BirthDate')
         query.pop('Confirmed account')
 
         d = datetime.datetime.now().strftime("%H:%M")  # adding the time when the driver start the shift

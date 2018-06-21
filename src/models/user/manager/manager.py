@@ -41,8 +41,23 @@ class Manager(object):
 
     @staticmethod
     def get_data(collection):
-        return Database.find(collection=collection, query={}, options={'_id': 0})
+        # images = Manager.get_image({})
+        # print(images.read())
+        token, = Utils.check_json_vaild(request.get_json(), "Token")
+        Utils.decode_token(token=token)
+        data = Database.find(collection=collection, query={},
+                             options={'_id': 0, 'created_at': 0, 'Password restoration code': 0, 'Password': 0})
+        data = [sorted(i.items(), key=lambda k: PRIORITIES[list(k)[0]]) for i in data]
+        return data
 
     # @staticmethod
     # def get_image(filter):
     #     return Database.find_image(collection=DB_COLLECION_IMAGES, filter=filter)
+
+    @staticmethod
+    def delete(collection):
+        token, phone_number = Utils.check_json_vaild(request.get_json(), "Token", 'PhoneNumber')
+        Utils.decode_token(token=token)
+        Database.delete(collection, {"PhoneNumber": phone_number})
+        Database.delete(collection, {"phone_number": phone_number})
+        Database.delete_image(DB_COLLECION_IMAGES, {"PhoneNumber": phone_number})
