@@ -6,9 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="3e23ba85-4851-4579-9539-22cab7bcaf12" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/config.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/config.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/user/manager/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user/manager/manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/user/moovit/moovit.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user/moovit/moovit.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -98,8 +96,11 @@
       <file leaf-file-name="manager.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/models/user/manager/manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="473">
-              <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
+            <state relative-caret-position="337">
+              <caret line="60" column="51" selection-start-line="60" selection-start-column="51" selection-end-line="60" selection-end-column="51" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -773,7 +774,14 @@
       <option name="project" value="LOCAL" />
       <updated>1529539949091</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="refinning the delete manager.">
+      <created>1529614029125</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1529614029125</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -807,7 +815,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="refining passenger model..." />
     <MESSAGE value="refining the names of the functions to be lowercase(because this is the convention)" />
     <MESSAGE value="Adding function for ttl of documents in 'Current shift' collection." />
     <MESSAGE value="1)Adding the function which take care of driver coordination.&#10;2)Adding the function in database for adding index 'expireation after seconds'." />
@@ -832,7 +839,8 @@
     <MESSAGE value="deleting the cors decorator and adding instead of it 'Flask-cors'." />
     <MESSAGE value=".." />
     <MESSAGE value="refinng the manager model (adding the delete data and get data function)" />
-    <option name="LAST_COMMIT_MESSAGE" value="refinng the manager model (adding the delete data and get data function)" />
+    <MESSAGE value="refinning the delete manager." />
+    <option name="LAST_COMMIT_MESSAGE" value="refinning the delete manager." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1161,8 +1169,11 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/user/manager/manager.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="473">
-          <caret line="66" column="21" lean-forward="true" selection-start-line="66" selection-start-column="21" selection-end-line="66" selection-end-column="21" />
+        <state relative-caret-position="337">
+          <caret line="60" column="51" selection-start-line="60" selection-start-column="51" selection-end-line="60" selection-end-column="51" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
