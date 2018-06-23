@@ -24,7 +24,7 @@ class Moovit(object):
             Driver.get_coordination({'Email': decoded_token['Email']}, {'Current location': 1, '_id': 0})[
                 'Current location']  # important thing i did here, its telling the mongo database to give me just the one field without other fields in document(which satisfy the requirements)
         query.update({"PhoneNumber": phone_number, "_id": uuid.uuid4().hex,
-                      "Riding time": datetime.datetime.utcnow().strftime("%Y/%m/%d, %H:%M")})
+                      "Riding time": datetime.datetime.now().strftime("%Y/%m/%d, %H:%M")})
         Moovit.save_to_db(query=query)
         SMS.send_sms(phone_number=phone_number, text=INVITAION_MESSAGE)
 

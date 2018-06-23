@@ -55,9 +55,10 @@ class Manager(object):
 
     @staticmethod
     def delete(collection):
+
         token, phone_number = Utils.check_json_vaild(request.get_json(), "Token", 'PhoneNumber')
         Utils.decode_token(token=token)
-        if collection == 'Passengers' or 'New rides':
+        if collection == ('Passengers' or 'New rides'):
             Database.delete(collection, {"phone_number": phone_number})
         elif collection == 'Drivers':
             Database.delete(collection, {"PhoneNumber": phone_number})
