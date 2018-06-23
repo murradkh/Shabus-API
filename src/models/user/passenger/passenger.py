@@ -41,8 +41,8 @@ class Passenger(object):
         passenger_details['Riding place'] = \
             Driver.get_coordination({'Email': decoded_token['Email']}, {'Current location': 1, '_id': 0})[
                 'Current location']  # important thing i did here, its telling the mongo database to give me just the one field without other fields in document(which satisfy the requirements)
-        passenger_details['Riding time'] = datetime.datetime.now().strftime("%Y/%m/%d, %H:%M")
-        passenger_details['created_at'] = datetime.datetime.now()
+        passenger_details['Riding time'] = datetime.datetime.utcnow().strftime("%Y/%m/%d, %H:%M")
+        passenger_details['created_at'] = datetime.datetime.utcnow()
         Passenger.store_new_ride(passenger_details)
         return passenger_details['name']
 

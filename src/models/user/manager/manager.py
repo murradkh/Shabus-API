@@ -41,8 +41,7 @@ class Manager(object):
 
     @staticmethod
     def get_data(collection):
-        # images = Manager.get_image({})
-        # print(images.read())
+        # images = Manager.gez
         token, = Utils.check_json_vaild(request.get_json(), "Token")
         Utils.decode_token(token=token)
         data = Database.find(collection=collection, query={},
