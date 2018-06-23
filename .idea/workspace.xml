@@ -6,10 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3e23ba85-4851-4579-9539-22cab7bcaf12" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/user/driver/driver.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user/driver/driver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/user/manager/manager.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user/manager/manager.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/user/moovit/moovit.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user/moovit/moovit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/user/passenger/passenger.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user/passenger/passenger.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -27,8 +23,17 @@
       <file leaf-file-name="driver.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/user/driver/driver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="313">
-              <caret line="163" column="17" selection-start-line="163" selection-start-column="17" selection-end-line="163" selection-end-column="17" />
+            <state relative-caret-position="217">
+              <caret line="153" column="17" lean-forward="true" selection-start-line="153" selection-start-column="17" selection-end-line="153" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="errors.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/models/user/driver/errors.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="357">
+              <caret line="21" column="25" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="25" />
             </state>
           </provider>
         </entry>
@@ -38,15 +43,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="136">
               <caret line="8" selection-start-line="8" selection-end-line="8" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/models/user/driver/views.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="646">
-              <caret line="43" selection-start-line="43" selection-end-line="43" />
             </state>
           </provider>
         </entry>
@@ -63,17 +59,17 @@
       <file leaf-file-name="moovit.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/user/moovit/moovit.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret column="15" selection-start-column="7" selection-end-column="15" />
+            <state relative-caret-position="184">
+              <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="passenger.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="passenger.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/user/passenger/passenger.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="279">
-              <caret line="50" column="53" selection-start-line="50" selection-start-column="53" selection-end-line="50" selection-end-column="53" />
+            <state relative-caret-position="262">
+              <caret line="49" column="54" lean-forward="true" selection-start-line="49" selection-start-column="54" selection-end-line="49" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -87,11 +83,14 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="manager.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="manager.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/models/user/manager/manager.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="299">
-              <caret line="55" column="17" lean-forward="true" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+            <state relative-caret-position="44">
+              <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+              <folding>
+                <element signature="e#0#25#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -214,11 +213,11 @@
         <option value="$PROJECT_DIR$/src/common/decorator.py" />
         <option value="$PROJECT_DIR$/src/models/user/manager/views.py" />
         <option value="$PROJECT_DIR$/src/config.py" />
-        <option value="$PROJECT_DIR$/src/models/user/manager/manager.py" />
         <option value="$PROJECT_DIR$/src/models/user/manager/constants.py" />
         <option value="$PROJECT_DIR$/src/models/user/driver/driver.py" />
         <option value="$PROJECT_DIR$/src/models/user/moovit/moovit.py" />
         <option value="$PROJECT_DIR$/src/models/user/passenger/passenger.py" />
+        <option value="$PROJECT_DIR$/src/models/user/manager/manager.py" />
       </list>
     </option>
   </component>
@@ -788,7 +787,21 @@
       <option name="project" value="LOCAL" />
       <updated>1529616708610</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="refinning the time.">
+      <created>1529769522736</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1529769522736</updated>
+    </task>
+    <task id="LOCAL-00044" summary="refinning...">
+      <created>1529771110126</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1529771110127</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -800,7 +813,7 @@
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50073206" side_tool="true" weight="0.3290938" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32952693" />
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.48679867" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49926794" weight="0.29867986" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49926794" visible="true" weight="0.29867986" />
       <window_info id="Structure" order="1" sideWeight="0.5011338" side_tool="true" weight="0.18155198" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32838285" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -822,8 +835,6 @@
   <component name="VcsManagerConfiguration">
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="CHECK_CODE_CLEANUP_BEFORE_PROJECT_COMMIT" value="true" />
-    <MESSAGE value="refining the names of the functions to be lowercase(because this is the convention)" />
-    <MESSAGE value="Adding function for ttl of documents in 'Current shift' collection." />
     <MESSAGE value="1)Adding the function which take care of driver coordination.&#10;2)Adding the function in database for adding index 'expireation after seconds'." />
     <MESSAGE value="just refining some functions..." />
     <MESSAGE value="adding sms file" />
@@ -847,7 +858,9 @@
     <MESSAGE value=".." />
     <MESSAGE value="refinng the manager model (adding the delete data and get data function)" />
     <MESSAGE value="refinning the delete manager." />
-    <option name="LAST_COMMIT_MESSAGE" value="refinning the delete manager." />
+    <MESSAGE value="refinning the time." />
+    <MESSAGE value="refinning..." />
+    <option name="LAST_COMMIT_MESSAGE" value="refinning..." />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REARRANGE_BEFORE_PROJECT_COMMIT" value="true" />
@@ -1104,13 +1117,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/user/driver/errors.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="357">
-          <caret line="21" column="25" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/user/driver/views.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="646">
@@ -1122,13 +1128,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="136">
           <caret line="8" selection-start-line="8" selection-end-line="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/user/moovit/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="20" selection-start-line="20" selection-end-line="20" />
         </state>
       </provider>
     </entry>
@@ -1153,31 +1152,48 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/user/driver/driver.py">
+    <entry file="file://$PROJECT_DIR$/src/models/user/driver/errors.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="163" column="17" selection-start-line="163" selection-start-column="17" selection-end-line="163" selection-end-column="17" />
+        <state relative-caret-position="357">
+          <caret line="21" column="25" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="25" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/user/manager/manager.py">
+    <entry file="file://$PROJECT_DIR$/src/models/user/moovit/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="299">
-          <caret line="55" column="17" lean-forward="true" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+        <state relative-caret-position="272">
+          <caret line="20" selection-start-line="20" selection-end-line="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/user/driver/driver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="217">
+          <caret line="153" column="17" lean-forward="true" selection-start-line="153" selection-start-column="17" selection-end-line="153" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/user/moovit/moovit.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="15" selection-start-column="7" selection-end-column="15" />
+        <state relative-caret-position="184">
+          <caret line="30" column="17" selection-start-line="30" selection-start-column="17" selection-end-line="30" selection-end-column="17" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/models/user/passenger/passenger.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="50" column="53" selection-start-line="50" selection-start-column="53" selection-end-line="50" selection-end-column="53" />
+        <state relative-caret-position="262">
+          <caret line="49" column="54" lean-forward="true" selection-start-line="49" selection-start-column="54" selection-end-line="49" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/user/manager/manager.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="55" column="17" selection-start-line="55" selection-start-column="17" selection-end-line="55" selection-end-column="17" />
+          <folding>
+            <element signature="e#0#25#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
