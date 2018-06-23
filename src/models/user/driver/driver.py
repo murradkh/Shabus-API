@@ -144,7 +144,7 @@ class Driver(object):
 
         d = datetime.datetime.now().strftime("%H:%M")  # adding the time when the driver start the shift
         query.update(
-            {"Started at": d, 'Start location': coordination, "Date": datetime.datetime.utcnow().strftime("%Y/%m/%d"),
+            {"Started at": d, 'Start location': coordination, "Date": datetime.datetime.now().strftime("%Y/%m/%d"),
              'created_at': datetime.datetime.utcnow(), 'Current location': coordination})
         try:
             Database.save_to_db(collection=DB_collection_current_driver_shift, query=query)
