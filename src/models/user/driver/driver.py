@@ -142,9 +142,11 @@ class Driver(object):
         query.pop('BirthDate')
         query.pop('Confirmed account')
 
-        d = datetime.datetime.now().strftime("%H:%M")  # adding the time when the driver start the shift
+        d = (datetime.datetime.now() + datetime.timedelta(hours=3)).strftime(
+            "%H:%M")  # adding the time when the driver start the shift
         query.update(
-            {"Started at": d, 'Start location': coordination, "Date": datetime.datetime.now().strftime("%Y/%m/%d"),
+            {"Started at": d, 'Start location': coordination,
+             "Date": (datetime.datetime.now() + datetime.timedelta(hours=3)).strftime("%Y/%m/%d"),
              'created_at': datetime.datetime.utcnow(), 'Current location': coordination})
         try:
             Database.save_to_db(collection=DB_collection_current_driver_shift, query=query)
@@ -164,7 +166,7 @@ class Driver(object):
         decoded_token = Utils.decode_token(token=token)
         current_shift = Database.find_one_and_delete(collection=DB_collection_current_driver_shift,
                                                      query={'Email': decoded_token['Email']})
-        current_shift['Finished at'] = datetime.datetime.now().strftime('%H:%M')
+        current_shift['Finished at'] = (datetime.datetime.now() + datetime.timedelta(hours=3)).strftime("%H:%M")
         current_shift[
             '_id'] = uuid.uuid4().hex  # here i changed the id of the document for not happening contradiction of the documents (which same driver can exist many times in this collection)
         current_shift['End location'] = current_shift['Current location']
