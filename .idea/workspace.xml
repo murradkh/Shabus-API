@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="3e23ba85-4851-4579-9539-22cab7bcaf12" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/user/driver/driver.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user/driver/driver.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/user/moovit/moovit.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user/moovit/moovit.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/models/user/passenger/passenger.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/user/passenger/passenger.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -23,11 +20,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="driver.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="driver.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/models/user/driver/driver.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-276">
-              <caret line="168" column="112" selection-start-line="168" selection-start-column="112" selection-end-line="168" selection-end-column="112" />
+            <state relative-caret-position="-1326">
+              <caret line="27" selection-start-line="27" selection-end-line="27" />
               <folding>
                 <element signature="e#0#15#0" expanded="true" />
               </folding>
@@ -66,22 +63,16 @@
         <entry file="file://$PROJECT_DIR$/src/models/user/moovit/moovit.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="85">
-              <caret line="26" column="122" selection-start-line="26" selection-start-column="122" selection-end-line="26" selection-end-column="122" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
+              <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="passenger.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="passenger.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/models/user/passenger/passenger.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="204">
               <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
-              <folding>
-                <element signature="e#0#15#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -227,9 +218,9 @@
         <option value="$PROJECT_DIR$/src/config.py" />
         <option value="$PROJECT_DIR$/src/models/user/manager/constants.py" />
         <option value="$PROJECT_DIR$/src/models/user/manager/manager.py" />
-        <option value="$PROJECT_DIR$/src/models/user/driver/driver.py" />
         <option value="$PROJECT_DIR$/src/models/user/moovit/moovit.py" />
         <option value="$PROJECT_DIR$/src/models/user/passenger/passenger.py" />
+        <option value="$PROJECT_DIR$/src/models/user/driver/driver.py" />
       </list>
     </option>
   </component>
@@ -821,7 +812,14 @@
       <option name="project" value="LOCAL" />
       <updated>1529774458246</updated>
     </task>
-    <option name="localTasksCounter" value="47" />
+    <task id="LOCAL-00047" summary="refinning...">
+      <created>1529778269776</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1529778269776</updated>
+    </task>
+    <option name="localTasksCounter" value="48" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -833,7 +831,7 @@
       <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.50073206" side_tool="true" weight="0.3290938" />
       <window_info anchor="bottom" id="Version Control" order="7" weight="0.32952693" />
       <window_info anchor="bottom" id="Python Console" order="9" weight="0.48679867" />
-      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49926794" visible="true" weight="0.29867986" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.49926794" visible="true" weight="0.339934" />
       <window_info id="Structure" order="1" sideWeight="0.5011338" side_tool="true" weight="0.18155198" />
       <window_info anchor="bottom" id="Terminal" order="10" weight="0.32838285" />
       <window_info id="Favorites" order="2" side_tool="true" />
@@ -1186,16 +1184,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/models/user/driver/driver.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-276">
-          <caret line="168" column="112" selection-start-line="168" selection-start-column="112" selection-end-line="168" selection-end-column="112" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/models/user/manager/manager.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="214">
@@ -1209,10 +1197,7 @@
     <entry file="file://$PROJECT_DIR$/src/models/user/moovit/moovit.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="85">
-          <caret line="26" column="122" selection-start-line="26" selection-start-column="122" selection-end-line="26" selection-end-column="122" />
-          <folding>
-            <element signature="e#0#15#0" expanded="true" />
-          </folding>
+          <caret line="27" column="46" selection-start-line="27" selection-start-column="46" selection-end-line="27" selection-end-column="46" />
         </state>
       </provider>
     </entry>
@@ -1220,6 +1205,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="204">
           <caret line="12" lean-forward="true" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/models/user/driver/driver.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1326">
+          <caret line="27" selection-start-line="27" selection-end-line="27" />
           <folding>
             <element signature="e#0#15#0" expanded="true" />
           </folding>
