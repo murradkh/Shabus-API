@@ -41,17 +41,24 @@ class Manager(object):
 
     @staticmethod
     def get_data(collection):
-        # images = Manager.gez
         token, = Utils.check_json_vaild(request.get_json(), "Token")
         Utils.decode_token(token=token)
         data = Database.find(collection=collection, query={},
                              options={'_id': 0, 'created_at': 0, 'Password restoration code': 0, 'Password': 0})
         data = [sorted(i.items(), key=lambda k: PRIORITIES[list(k)[0]]) for i in data]
-        return data
+        if collection == 'Drivers' or collection == 'Current shifts' or collection == 'Managers':
+            for i in data:
+                for detail in i:
+                    if detail[0] == "PhoneNumber":
+                        print(detail[1])
+                        image = Database.find_image(collection=DB_COLLECION_IMAGES, filter={"PhoneNumber": detail[1]})
+                        print(image)
+                        i.append(('Image', image.read().decode()))
 
-    # @staticmethod
-    # def get_image(filter):
-    #     return Database.find_image(collection=DB_COLLECION_IMAGES, filter=filter)
+        print(data)
+        # image = Driver.get_image({"PhoneNumber": phone_number})
+
+        return data
 
     @staticmethod
     def delete(collection):
